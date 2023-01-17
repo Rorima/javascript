@@ -1,7 +1,60 @@
 # Notes
 
-These are all of the notes I took while studying the course JavaScript Tutorial for Beginners made by Bro Code. This is just a reference in case I need to reference something I have learned. It might not be really useful to anyone else except for me.
+These are all of the notes I took while studying the course JavaScript Tutorial for Beginners made by Bro Code. This is just a reference in case I need to refresh something I have learned. It might not be really useful for anyone else except for me.
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
 I stopped [here](https://www.youtube.com/watch?v=STEfmxQjO2Q&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=1&ab_channel=BroCode).
+
+## What is JavaScript?
+
+JS is a web-based programming language. It is used to:
+
+* Add interactive behavior to web pages;
+* Build web and mobile applications;
+* Create command line tools;
+* Develop games.
+
+Important notes: JavaScript is not Java! Knowing HTML and CSS is helpful, but not necessary until much later.
+
+You'll need a web browser and a text editor. You'll need browser because JavaScript runs on browsers. Don't use Internet Explorer.
+
+When creating JavaScript files, make sure they have the .js extension.
+
+Download the Live Server extension in VS Code. This will help you in the long run.
+
+You'll need to link the JavaScript file to your HTML file. In order to do that, use the `<script></script>` tags inside the body of your HTML document. Inside the first tag, write the name of your js file.
+
+Example:
+
+`<script src="index.js"></script>`
+
+### Printing something on the console
+
+To access the console, right click on the `index.html` and select `Open with Live Server`. Then, right click on the newly opened page and select `inspect element`. In the upper part of the window that will be opened click on `console`.
+
+In order to display something in the console, write inside the js file `console.log("Your text");`.
+
+### Alert boxes
+
+They work almost in the same way `console.log()`. The difference is that it will display a box on the browser instead of printing the message on the console.
+
+Example:
+
+`window.alert("I REALLY LIKE PIZZA")`
+
+### Comments
+
+Comments are written on double foward slashes. `// This is single line a comment`, or like this for multiple lined comments:
+
+```
+/*
+    And
+    This
+    Is
+    A
+    Multiline
+    Comment
+*/
+```
+
