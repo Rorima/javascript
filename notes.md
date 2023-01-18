@@ -4,7 +4,7 @@ These are all of the notes I took while studying the course JavaScript Tutorial 
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-I stopped [here](https://www.youtube.com/watch?v=WBiq2j95DP8&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=3&ab_channel=BroCode). 4:26
+I stopped [here](https://www.youtube.com/watch?v=fARJwGqdbKQ&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=4&ab_channel=BroCode).
 
 ## What is JavaScript?
 
@@ -58,15 +58,29 @@ Comments are written on double foward slashes. `// This is single line a comment
 */
 ```
 
-## Variavles and data types
+## Variables and data types
 
-A variable can be declared using three different keywords: `var`, `let` and `const`. Using `let` is part of best practices.
+A variable can be declared using three different keywords: `var`, `let` and `const`. Using `let` is part of the best practices.
 
 Example:
 
 `let age = 50;`
 
-If you declare a variable but doesn't assign any value to it, it is called an undefined variable.
+If you declare a variable but don't assign any value to it, it is called an undefined variable.
+
+### Data types:
+
+JS types are: 
+
+* number: 3.14, 123
+* boolean: true, false
+* string: "Hello"
+* Array: []
+* Object: {}
+* undefined
+* null
+
+`null` is used when a variable should be marked as empty. `undefined` can be used for this purpose, but it should not be used.
 
 ### Declaring and printing some data types
 
@@ -80,7 +94,7 @@ let lastName = "Doe";
 let student = true;
 
 /* 
-    Like in Ptython, you can separate variables and strings with
+    Like in Python, you can separate variables and strings with
     a comma, and a space will be added automatically. You can
     also separate them with the + sign, but then you'll have
     to add the space manually.
@@ -119,3 +133,37 @@ JavaScript has an augmented asignment operator, just like C and Python.
 3. Multiplication & division (whatever comes first);
 4. Addition & subtraction (whatever comes first).
 
+### User input
+
+We are going to learn two ways to get input from the user.
+
+#### Window prompt
+
+Use the following command to get imput from the user using a window prompt:
+
+```
+let userName = window.prompt("What is your name?");
+console.log(userName);
+```
+
+#### Using text box
+
+Another way to get input from the user is using a text box. In order to do this, you'll need to create a text box inside the HTML file. This is a little bit advanced, so just copy and paste.
+
+HTML:
+
+```
+<label>Enter your name: </label>
+<input type="text" id="myText">
+<button type="button" id="myButton">Submit</button>
+```
+
+JS [OBS: DOESN'T SEEM TO WORK]:
+
+```
+let userName;
+document.getElementById("myButton").onclick = function(){
+    userName = document.getElementById("myText").value;
+    console.log(userName)
+}
+```
