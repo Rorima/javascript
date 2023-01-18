@@ -133,11 +133,11 @@ JavaScript has an augmented asignment operator, just like C and Python.
 3. Multiplication & division (whatever comes first);
 4. Addition & subtraction (whatever comes first).
 
-### User input
+## User input
 
 We are going to learn two ways to get input from the user.
 
-#### Window prompt
+### Window prompt
 
 Use the following command to get imput from the user using a window prompt:
 
@@ -146,7 +146,7 @@ let userName = window.prompt("What is your name?");
 console.log(userName);
 ```
 
-#### Using text box
+### Using text box
 
 Another way to get input from the user is using a text box. In order to do this, you'll need to create a text box inside the HTML file. This is a little bit advanced, so just copy and paste.
 
@@ -167,3 +167,40 @@ document.getElementById("myButton").onclick = function(){
     console.log(userName)
 }
 ```
+
+## Arrays
+
+JS can hold an array of variables in an Array object. An array can also function as a list, a stack or a queue. To define an array, either use the brackets notation of the Array object notation.
+
+```
+var myArray = [1, 2, 3];
+var theSameArray = new Array(1, 2, 3);
+```
+
+### Addressing
+
+Use the brackets `[]` operator to address a specific cell in an array.
+
+`console.log(myArray[1]);`
+
+Arrays in JS are sparce, meaning that we can also assign variables to random locations even though previous cells were undefined. Example:
+
+```
+var arr = [];
+arr[3] = "hello";
+console.log(arr);
+```
+
+Result:
+
+`(4) [empty × 3, 'hello']`
+
+Which means:
+
+`[undefined, undefined, undefined, "hello"]`
+
+### Array elements
+
+Because JS arrays are just special kinds of objects, you can have elements of different types stored together in the same array. The example below is an array with a string, a number, and an empty object:
+
+`var myArray = ["string", 10, {}];`
