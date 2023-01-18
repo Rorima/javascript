@@ -4,7 +4,7 @@ These are all of the notes I took while studying the course JavaScript Tutorial 
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-I stopped [here](https://www.youtube.com/watch?v=fARJwGqdbKQ&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=4&ab_channel=BroCode).
+I stopped [here](https://www.youtube.com/watch?v=I68O9oazLbo&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=5&ab_channel=BroCode).
 
 ## What is JavaScript?
 
@@ -139,7 +139,7 @@ We are going to learn two ways to get input from the user.
 
 ### Window prompt
 
-Use the following command to get imput from the user using a window prompt:
+Use the following command to get input from the user using a window prompt:
 
 ```
 let userName = window.prompt("What is your name?");
@@ -158,7 +158,9 @@ HTML:
 <button type="button" id="myButton">Submit</button>
 ```
 
-JS [OBS: DOESN'T SEEM TO WORK]:
+The tags `<script></script>` should be under this HTML code. It won't work otherwise.
+
+JS:
 
 ```
 let userName;
@@ -204,3 +206,9 @@ Which means:
 Because JS arrays are just special kinds of objects, you can have elements of different types stored together in the same array. The example below is an array with a string, a number, and an empty object:
 
 `var myArray = ["string", 10, {}];`
+
+## Manipulating arrays
+
+https://www.learn-js.org/en/Manipulating_Arrays
+
+##
