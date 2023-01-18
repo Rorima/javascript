@@ -4,7 +4,7 @@ These are all of the notes I took while studying the course JavaScript Tutorial 
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-I stopped [here](https://www.youtube.com/watch?v=STEfmxQjO2Q&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=1&ab_channel=BroCode).
+I stopped [here](https://www.youtube.com/watch?v=WBiq2j95DP8&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=3&ab_channel=BroCode). 4:26
 
 ## What is JavaScript?
 
@@ -91,3 +91,31 @@ console.log("Age:", age);
 ```
 
 ## Arithmetic expressions
+
+Example:
+
+```
+let students = 20;
+
+students = students + 1;
+students = students - 1;
+students = students * 2;
+students = students / 2;
+students = students ** 3;
+
+let extraStudents = students % 3;
+
+students += 1;
+```
+
+JavaScript has an augmented asignment operator, just like C and Python.
+
+`students += 1;`
+
+### Operator precedence:
+
+1. Parenthesis;
+2. Exponents;
+3. Multiplication & division (whatever comes first);
+4. Addition & subtraction (whatever comes first).
+
