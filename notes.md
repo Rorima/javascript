@@ -1,10 +1,12 @@
 # Notes
 
-These are all of the notes I took while studying the course JavaScript Tutorial for Beginners made by Bro Code. This is just a reference in case I need to refresh something I have learned. It might not be really useful for anyone else except for me.
+These are all of the notes I took while studying the playlist JavaScript Tutorial for Beginners made by Bro Code. This is just a reference in case I need to refresh something I have learned. It might not be really useful for anyone else except for me.
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
 I stopped [here](https://www.youtube.com/watch?v=I68O9oazLbo&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=5&ab_channel=BroCode).
+
+I stopped [here](https://www.learn-js.org/en/Operators).
 
 ## What is JavaScript?
 
@@ -21,7 +23,7 @@ You'll need a web browser and a text editor. You'll need browser because JavaScr
 
 When creating JavaScript files, make sure they have the .js extension.
 
-Download the Live Server extension in VS Code. This will help you in the long run.
+Download the Live Server extension in VS Code. This will be useful to run your code.
 
 You'll need to link the JavaScript file to your HTML file. In order to do that, use the `<script></script>` tags inside the body of your HTML document. Inside the first tag, write the name of your js file.
 
@@ -45,7 +47,7 @@ Example:
 
 ### Comments
 
-Comments are written on double foward slashes. `// This is single line a comment`, or like this for multiple lined comments:
+Comments are written with double foward slashes. `// This is single line a comment`, or like this for multiple lined comments:
 
 ```
 /*
@@ -70,7 +72,7 @@ If you declare a variable but don't assign any value to it, it is called an unde
 
 ### Data types:
 
-JS types are: 
+JS data types are: 
 
 * number: 3.14, 123
 * boolean: true, false
@@ -118,8 +120,6 @@ students = students / 2;
 students = students ** 3;
 
 let extraStudents = students % 3;
-
-students += 1;
 ```
 
 JavaScript has an augmented asignment operator, just like C and Python.
@@ -172,7 +172,7 @@ document.getElementById("myButton").onclick = function(){
 
 ## Arrays
 
-JS can hold an array of variables in an Array object. An array can also function as a list, a stack or a queue. To define an array, either use the brackets notation of the Array object notation.
+JS can hold an array of variables in an Array object. An array can also function as a list, a stack or a queue. To define an array, either use the brackets notation or the Array object notation.
 
 ```
 var myArray = [1, 2, 3];
@@ -185,7 +185,7 @@ Use the brackets `[]` operator to address a specific cell in an array.
 
 `console.log(myArray[1]);`
 
-Arrays in JS are sparce, meaning that we can also assign variables to random locations even though previous cells were undefined. Example:
+Arrays in JS are sparse, meaning that we can also assign variables to random locations even though previous cells were undefined. Example:
 
 ```
 var arr = [];
@@ -209,6 +209,65 @@ Because JS arrays are just special kinds of objects, you can have elements of di
 
 ## Manipulating arrays
 
-https://www.learn-js.org/en/Manipulating_Arrays
+### Pushing and popping
 
-##
+Arrays can also function as a stack. The `push` and `pop` methods insert and remove variables from the end of an array.
+
+Pushing:
+
+```
+let myStack = [];
+myStack.push(1);
+myStack.push(2);
+myStack.push(3);
+console.log(myStack);
+```
+
+Popping:
+
+```
+console.log(myStack.pop());
+console.log(myStack);
+```
+
+The `pop` method returns the last item from the stack, removing it from the stack.
+
+### Shifting and unshifting
+
+The `unshift` and `shift` methods are similar to `push` and `pop`, only they work from the beginning of the array. We can use `push` and `shift` to utilize an array as a queue.
+
+`shift` removes the first item from a list while `unshift` inserts an item at the beginning of a list.
+
+Shifting:
+
+```
+console.log("Shifting");
+console.log(myStack.shift());
+```
+
+Unshifting:
+
+```
+console.log("Unshifting");
+myStack.unshift(1);
+console.log(myStack);
+```
+
+### Splicing
+
+Splicing arrays in JS removes a certain part from an array to create a new array, made up from the part we took out. For example, if we wanted to remove the five numbers from the following array beginning from the 3rd index, we would do the following:
+
+```
+myStack = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let newStack = myStack.splice(3, 5);
+console.log(myStack);
+console.log(newStack);
+```
+
+This means that a new stack will be created containing five numbers from the 3rd index. The following will be printed on the log:
+
+myStack: `(4) [1, 2, 3, 9]`
+newStack: `(5) [4, 5, 6, 7, 8]`
+
+Notice that the first array was modified, losing it's values from the index indicated until the stop indicated.
+
