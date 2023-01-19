@@ -4,6 +4,7 @@ In this repository I plan to save everything I learned in the [JavaScript Tutori
 
 In the file named "notes" you'll find in written format everything that I have learned throughout this course.
 
-This playlist doesn't seem to have all of the basic material to learn JS, and sometimes it teaches a couple of advanced topics that are quite difficult to understand without the basics, so I'm going to supplement this with other resources. I'm going to list here all of the resources I used.
+This playlist doesn't seem to have all of the basic material needed to learn JS, and sometimes it teaches a couple of advanced topics that are quite difficult to understand without the basics, so I'm going to supplement this with other resources. I'm going to list here all of the resources I used.
 
 * [Learn JS](https://www.learn-js.org/)
+* [W3 Schools](https://www.w3schools.com/js/default.asp)

@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-I stopped [here](https://www.youtube.com/watch?v=I68O9oazLbo&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=5&ab_channel=BroCode).
+I stopped [here](https://www.youtube.com/watch?v=49S8P_MFGOY&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=6&ab_channel=BroCode).
 
 I stopped [here](https://www.learn-js.org/en/Operators).
 
@@ -271,3 +271,37 @@ newStack: `(5) [4, 5, 6, 7, 8]`
 
 Notice that the first array was modified, losing it's values from the index indicated until the stop indicated.
 
+## Type conversion
+
+### String to number
+
+Type conversion is the ability to change the data type of a value to another. If you used `window.prompt("How old are you?");` and tried to do some operations with the returned value, you might have noticed that this command returns strings, and not integers. In order to convert a string into a number, use the `Number()` constructor.
+
+```
+let age = window.prompt("How old are you?");
+age = Number(age);
+age += 1;
+console.log("Happy Birthday! You are", age, "years old!");
+```
+
+### Number to string
+
+```
+let y = String(3.14);
+```
+
+If you try to convert something that isn't a number into a number, it's value will be `NaN`, which means "not a number".
+
+### String to boolean
+
+Converting an empty string into a boolean will result to false. Anything else will give you true.
+
+```
+let z = Boolean("");
+```
+
+### Type of
+
+Using `typeof` you can know the data type of a variable.
+
+`console.log(typeof age);`
