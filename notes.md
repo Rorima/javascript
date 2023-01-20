@@ -4,9 +4,11 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-I stopped [here](https://www.youtube.com/watch?v=49S8P_MFGOY&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=6&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=49S8P_MFGOY&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=6&ab_channel=BroCode).
 
-I stopped [here](https://www.learn-js.org/en/Operators).
+JS.org: I stopped [here](https://www.learn-js.org/en/Operators).
+
+W3Schools: I stopped [here](https://www.w3schools.com/js/default.asp)
 
 ## What is JavaScript?
 
@@ -305,3 +307,14 @@ let z = Boolean("");
 Using `typeof` you can know the data type of a variable.
 
 `console.log(typeof age);`
+
+## Constants
+
+A constant is a variable that can't be changed. Let's create a program that calculates the circumference of a circle. The formula is: Circumference = 2 * pi * radius. A common convention for constants is that you make all letters uppercase.
+
+```
+const PI = 3.14159;
+let radius = 9;
+let circumference = 2 * PI * radius;
+console.log("The circumference is", circumference);
+```
