@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=49S8P_MFGOY&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=6&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=d8LrQ06j4w8&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=8&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Operators).
 
@@ -318,3 +318,54 @@ let radius = 9;
 let circumference = 2 * PI * radius;
 console.log("The circumference is", circumference);
 ```
+
+## Math methods
+
+Math is an instrinsic object that provides basic mathematics functionality and constants.
+
+### Round
+
+`console.log(Math.round(x));`
+
+### Floor
+
+Removes the decimal part. Rounds down.
+
+`console.log(Math.floor(x));`
+
+### Ceil
+
+Rounds up.
+
+`console.log(Math.ceil(x));`
+
+### Pow
+
+Exponentiation. You have to give the base and the exponent separated by commas.
+
+`console.log(Math.pow(x, 2));`
+
+### Sqrt
+
+Square root.
+
+`console.log(Math.sqrt(x));`
+
+### Abs
+
+Absolute value. 
+
+### Max and min
+
+Tell the highest and lowest value.
+
+```
+console.log(Math.max(2, 1, 4, 3));
+console.log(Math.min(2, 1, 4, 3));
+```
+
+### PI
+
+Pi constant.
+
+`console.log(Math.PI);`
