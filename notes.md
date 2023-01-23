@@ -369,3 +369,76 @@ console.log(Math.min(2, 1, 4, 3));
 Pi constant.
 
 `console.log(Math.PI);`
+
+## Operators
+
+### Arithmetic
+
+* \+ Addition
+* \- Subtraction
+* \* Multiplication
+* ** Exponentiation
+* / Division
+* % Modulus (division remainder)
+* ++ Increment
+* -- Decrement
+
+### Assignment
+
+* x = y Same as x = x
+* x += y Same as x = x + y
+* x -= y Same as x = x - y
+* x *= y Same as x = x * y
+* x /= y Same as x = x / y
+* x %= y Same as x = x % y
+* x **= y Same as x = x ** y
+
+### Comparison
+
+* == Equal to
+* === Equal value and equal type
+* != Not equal
+* !== Not equal value or not equal type
+* \> Greater than
+* < Less than
+* \>= Greater than or equal to
+* <= Less than or equal to
+* ? Ternary operator
+
+#### When to use == and ===?
+
+Basically, the only case you're going to use `==` is when you want to check if a variable is undefined. If you use `null === undefined`, it will return `false`, and if you use `null == undefined`, it will return `true`. In all other cases you're going to use `===`.
+
+### Logical Operators
+
+&& and
+|| or
+! not
+
+## Conditions
+
+### The if statement
+
+The if statement allows us to check if an expression is iqual to `true` or `false`, and execute different code according to the result.
+
+```
+let banana = "yellow";
+
+if (banana == "yellow")
+{
+    console.log("Bananas are yellow!");
+} else {
+    console.log("Bananas are not yellow!");
+}
+```
+
+To evaluete whetehr two variables are equal, the `==` operator is used. There is also another equality operator in JavaScript, `===`, which does a strict comparison. This menas that it will be true only if the two things you are comparing are the same type as well as same content.
+
+```
+console.log("1" == 1); // true
+console.log("1" === 1); // false
+```
+
+### The switch statement
+
+https://www.learn-js.org/en/Conditions
