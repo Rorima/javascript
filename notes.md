@@ -6,7 +6,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 Bro code: I stopped [here](https://www.youtube.com/watch?v=d8LrQ06j4w8&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=8&ab_channel=BroCode).
 
-JS.org: I stopped [here](https://www.learn-js.org/en/Operators).
+JS.org: I stopped [here](https://www.learn-js.org/en/Loops).
 
 W3Schools: I stopped [here](https://www.w3schools.com/js/default.asp)
 
@@ -411,9 +411,9 @@ Basically, the only case you're going to use `==` is when you want to check if a
 
 ### Logical Operators
 
-&& and
-|| or
-! not
+* && and
+* || or
+* ! not
 
 ## Conditions
 
@@ -432,7 +432,7 @@ if (banana == "yellow")
 }
 ```
 
-To evaluete whetehr two variables are equal, the `==` operator is used. There is also another equality operator in JavaScript, `===`, which does a strict comparison. This menas that it will be true only if the two things you are comparing are the same type as well as same content.
+To evaluete whether two variables are equal, the `==` operator is used. There is also another equality operator in JavaScript, `===`, which does a strict comparison. This means that it will be true only if the two things you are comparing are the same type as well as same content.
 
 ```
 console.log("1" == 1); // true
@@ -441,4 +441,27 @@ console.log("1" === 1); // false
 
 ### The switch statement
 
-https://www.learn-js.org/en/Conditions
+The `switch` statement is similar to the `switch` statement from the C programming language, but also supports strings. The `switch` statement is used to select between more than two different options, and to run the same code for more than one option.
+
+```
+var rank = "Commander";
+switch(rank)
+{
+    case "Private":
+    case "Sergeant":
+        console.log("You are not authorized.");
+        break;
+    case "Commander":
+        console.log("Hello commander! what can I do for you today?");
+        break;
+    case "Captain":
+        console.log("Hello captain! I will do anything you wish.");
+        break;
+    default:
+        console.log("I don't know what your rank is.");
+        break;
+}
+```
+
+In this example, "Private" and "Sergeant" both trigger the first sentence, "Commander" triggers the second sentence and "Captain" triggers the third. If an unknown rank was evaluated, the default keyword defines the action for this case (optional). We must use  the `break` statement between every code block to avoid the `switch` froom executing the next code block. Using the `switch` statement in general is not recommended, because forgetting the `break` key word causes very confusing results.
+
