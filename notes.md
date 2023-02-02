@@ -452,7 +452,7 @@ switch(rank)
         console.log("You are not authorized.");
         break;
     case "Commander":
-        console.log("Hello commander! what can I do for you today?");
+        console.log("Hello commander! What can I do for you today?");
         break;
     case "Captain":
         console.log("Hello captain! I will do anything you wish.");
@@ -464,4 +464,3 @@ switch(rank)
 ```
 
 In this example, "Private" and "Sergeant" both trigger the first sentence, "Commander" triggers the second sentence and "Captain" triggers the third. If an unknown rank was evaluated, the default keyword defines the action for this case (optional). We must use  the `break` statement between every code block to avoid the `switch` froom executing the next code block. Using the `switch` statement in general is not recommended, because forgetting the `break` key word causes very confusing results.
-
