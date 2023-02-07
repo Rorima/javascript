@@ -4,9 +4,9 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=d8LrQ06j4w8&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=8&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=dKOT5LcouzQ&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=9&ab_channel=BroCode).
 
-JS.org: I stopped [here](https://www.learn-js.org/en/Loops).
+JS.org: I stopped [here](https://www.learn-js.org/en/Objects).
 
 W3Schools: I stopped [here](https://www.w3schools.com/js/default.asp)
 
@@ -464,3 +464,86 @@ switch(rank)
 ```
 
 In this example, "Private" and "Sergeant" both trigger the first sentence, "Commander" triggers the second sentence and "Captain" triggers the third. If an unknown rank was evaluated, the default keyword defines the action for this case (optional). We must use  the `break` statement between every code block to avoid the `switch` froom executing the next code block. Using the `switch` statement in general is not recommended, because forgetting the `break` key word causes very confusing results.
+
+## Loops
+
+### The for statement
+
+JS has two methods for running the same code several times. It is mainly used for iterating over arrays or objects.
+
+```
+let i;
+for(i = 0; i < 3; i = i + 1)
+{
+    console.log(i);
+}
+```
+
+Shorter version:
+
+```
+for(let i = 0; i < 3; i++)
+{
+    console.log(i);
+}
+```
+
+#### Iterating over an array
+
+```
+let myArray = [1, 2, 3, 'A', 'B', 'C'];
+for(var i = 0; i < myArray.length; i++)
+{
+    console.log("Index:", i, "value:", myArray[i]);
+}
+```
+
+Notice that we used the `length` property of an array, which returns the number of members in the array, so we know when to stop iterating.
+
+### The while statement
+
+The `while` statement is a more simple version of the `for` statement, which checks if an expression evaluates to `true` and runs as long as it says `true`.
+
+```
+let i = 0;
+while(i < 5)
+{
+    console.log(i);
+    i = i + 1;
+}
+```
+
+#### Break and continue statements
+
+The `break` statement allows to stop the execution of a loop. For example, we can create a loop that loops forever using `while(true)` and use the `break` statement to break inside the loop instead by checking that a certain condition was met.
+
+```
+let i = 5;
+while(true)
+{
+    console.log(i + " person");
+    i -= 1;
+    if (i == 0)
+    {
+        break;
+    }
+}
+```
+
+The `continue`statement skips the rest of the loop and jumps back to the beginning of the loop. For example, if we would want to print only odd numbers using a `for` statemnt, we can do the following:
+
+```
+for(let i = 0; i < 10; i++)
+{
+    // check that the number is even
+    if(i % 2 === 0)
+    {
+        continue;
+    }
+    // if we got here, then i is odd
+    console.log(i, "is an odd number.");
+}
+```
+
+
+http://127.0.0.1:5500/javascript-files/index.html
