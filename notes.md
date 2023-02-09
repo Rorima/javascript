@@ -6,9 +6,9 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 Bro code: I stopped [here](https://www.youtube.com/watch?v=dKOT5LcouzQ&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=9&ab_channel=BroCode).
 
-JS.org: I stopped [here](https://www.learn-js.org/en/Objects).
+JS.org: I stopped [here](https://www.learn-js.org/en/Functions).
 
-W3Schools: I stopped [here](https://www.w3schools.com/js/js_output.asp)
+W3Schools: I stopped [here](https://www.w3schools.com/js/js_statements.asp)
 
 ## What is JavaScript?
 
@@ -171,6 +171,55 @@ document.getElementById("myButton").onclick = function(){
     console.log(userName)
 }
 ```
+
+## JavaScript output
+
+JS can display data in different ways:
+
+* Writing into an HTML element, using `innerHTML`.
+* Writing into the HTML output using `document.write()`.
+* Writing into an alertbox, using `window.alert()`.
+* Writing into the browser console, using `console.log()`.
+
+### Using innerHTML
+
+To access an HTML element, JS can use the `document.getElementById(id)` method. The `id` attribute defines the HTML element. The `innerHTML` property defines the HTML content.
+
+```
+document.getElementById("demo").innerHTML = 5 + 6;
+```
+
+Changing the innerHTML property of an HTML element is a common way to display data in HTML. Keep in mind that this will only work if the script tags are located below the element you want to change.
+
+### Using document.write()
+
+For testing purposes, it is convenient to use `document.write().`
+
+`document.write("Hello");`
+
+Using `document.write()` after an HTML document is loaded, will delete all existing HTML. For example, if you use it on a "onclick" in a button, it will clear your page. It should only be used for testing.
+
+### Using window.alert()
+
+You can use an alert box to display data:
+
+`window.alert(5 + 6);`
+
+You can skip the `window` keyword. In JS, the window object is the global scope object. This means that variables, properties, and methods by default belong to the window object. This also means that specifying the `window` keyword is optional.
+
+`alert(5 + 6);`
+
+### Using console.log()
+
+For debugging purposes, you can call the `console.log()` method in the browser to display data.
+
+`console.log("Hello, world!");` 
+
+### JavaScript Print
+
+JS doesn't have any print object or print methods. You cannot access output devices from JS. The only exception is that you can call the `window.print()` method in the browser to print the content of the current window.
+
+`<button onclick="window.print()">Print this page</button>`
 
 ## Arrays
 
@@ -545,52 +594,41 @@ for(let i = 0; i < 10; i++)
 }
 ```
 
-## JavaScript output
+## Objects
 
-JS can display data in different ways:
+An object in JS is usually used as a data structure, similar to a dictionary in Python or a map in Java. In this tutorial, we will learn how to use objects as a data strucutre.
 
-* Writing into an HTML element, using `innerHTML`.
-* Writing into the HTML output using `document.write()`.
-* Writing into an alertbox, using `window.alert()`.
-* Writing into the browser console, using `console.log()`.
-
-### Using innerHTML
-
-To access an HTML element, JS can use the `document.getElementById(id)` method. The `id` attribute defines the HTML element. The `innerHTML` property defines the HTML content.
+To initialize an object, use curly braces:
 
 ```
-document.getElementById("demo").innerHTML = 5 + 6;
+let emptyObject = {};
+let personObject = {
+    firstName: "John",
+    lastName: "Doe"
+}
 ```
 
-Changing the innerHTML property of an HTML element is a common way to display data in HTML. Keep in mind that this will only work if the script tags are located below the element you want to change.
+### Member addressing
 
-### Using document.write()
+Members of objects can be addressed using the brackets operator `[]`, very much like arrays, but just like many other object oriented languages, the period `.` operator can also be used. They are very similar, except for the fact that brackets return a member by using a string, in contrast to the period operator, which requires the member to be a simple word (the word should not contain spaces, start with a number or use illegal characters).
 
-For testing purposes, it is convenient to use `document.write().`
+For example, we can continue to fill the person object with more details:
 
-`document.write("Hello");`
+```
+personObject.age = 23;
+personObject["salary"] = 14000;
+```
 
-Using `document.write()` after an HTML document is loaded, will delete all existing HTML. For example, if you use it on a "onclick" in a button, it will clear your page. It should only be used for testing.
+### Iteration
 
-### Using window.alert()
+Iterating over members of a dictionary is not a trivial task, since iterating over objects can also yield members who don't actually belong to an object. Therefore, we must use the `hasOwnProperty` method to check that the member in fact belongs to the object.
 
-You can use an alert box to display data:
-
-`window.alert(5 + 6);`
-
-You can skip the `window` keyword. In JS, the window object is the global scope object. This means that variables, properties, and methods by default belong to the window object. This also means that specifying the `window` keyword is optional.
-
-`alert(5 + 6);`
-
-### Using console.log()
-
-For debugging purposes, you can call the `console.log()` method in the browser to display data.
-
-`console.log("Hello, world!");` 
-
-### JavaScript Print
-
-JS doesn't have any print object or print methods. You cannot access output devices from JS. The only exception is that you can call the `window.print()` method in the browser to print the content of the current window.
-
-`<button onclick="window.print()">Print this page</button>`
-
+```
+for (var member in personObject)
+{
+    if (personObject.hasOwnProperty(member))
+    {
+        console.log("the member " + member + " of personObject is " + personObject[member])
+    }
+}
+```
