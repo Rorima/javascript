@@ -6,9 +6,9 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 Bro code: I stopped [here](https://www.youtube.com/watch?v=dKOT5LcouzQ&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=9&ab_channel=BroCode).
 
-JS.org: I stopped [here](https://www.learn-js.org/en/Functions).
+JS.org: I stopped [here](https://www.learn-js.org/en/Pop-up_Boxes).
 
-W3Schools: I stopped [here](https://www.w3schools.com/js/js_statements.asp)
+W3Schools: I stopped [here](https://www.w3schools.com/js/js_const.asp)
 
 ## What is JavaScript?
 
@@ -64,7 +64,9 @@ Comments are written with double foward slashes. `// This is single line a comme
 
 ## Variables and data types
 
-A variable can be declared using three different keywords: `var`, `let` and `const`. Using `let` is part of the best practices.
+A variable can be declared using three different keywords: `var`, `let` and `const`. Using `let` is part of the best practices. `let` and `const` provide a **Block Scope** in JS. Variables declared inside a {} block cannot be accessed from outside the block. Variables declared with the `var` keyword can NOT have block scope. This means that variables declared with `var` are global variables.
+
+The `var` keyword is used in all JavaScript code from 1995 to 2015. The `let` and `const` keywords were added to JavaScript in 2015. If you want your code to run in older browsers, you must use `var`.
 
 Example:
 
@@ -631,4 +633,32 @@ for (var member in personObject)
         console.log("the member " + member + " of personObject is " + personObject[member])
     }
 }
+```
+
+## Functions
+
+Functions are code blocks that can have arguments, and functions have their own scope. In JS, functions are a very importante feature of the program, and especially the fact that they can access local variables of a parent function.
+
+There are two ways to define functions in JS - named functions and anonymous functions. To define a named function, we use the `function` statement as follows:
+
+```
+function greet(name)
+{
+    return "Hello " + name + "!";
+}
+
+console.log(greet("Bob"));
+```
+
+In this funciton, the `name` argument to the `greet` function is used inside the function to construct a new string and return it using the `return` statement.
+
+To define an anonymous function, we can alternatively use the following syntax:
+
+```
+let greeter = function(name)
+{
+    return "Hello " + name + "!";
+}
+
+console.log(greeter("Tim"));
 ```
