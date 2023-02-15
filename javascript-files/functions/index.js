@@ -7,7 +7,6 @@ function greet(name)
 console.log(greet("Bob"));
 
 // Anonymous function
-
 let greeter = function(name)
 {
     return "Hello " + name + "!";
