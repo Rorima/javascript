@@ -8,7 +8,7 @@ Bro code: I stopped [here](https://www.youtube.com/watch?v=dKOT5LcouzQ&list=PLZP
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Pop-up_Boxes).
 
-W3Schools: I stopped [here](https://www.w3schools.com/js/js_const.asp)
+W3Schools: I stopped [here](https://www.w3schools.com/js/js_operators.asp)
 
 ## What is JavaScript?
 
@@ -72,7 +72,63 @@ Example:
 
 `let age = 50;`
 
-If you declare a variable but don't assign any value to it, it is called an undefined variable.
+If you declare a variable but don't assign any value to it, it is called an undefined variable. 
+
+### Const
+
+Keep in mind that `const` variables must be assigned a value when they are declared. Always declare a variable with `const` when you know that the value should not be changed.
+
+Example:
+
+`const PI = 3.14159265359;`
+
+The keyword `const` is a little misleading. It does not define a constant value. It defines a constant reference to a value. Because of this you can NOT reassign a constant value, array or object, but you CAN change the elements of a constant array and the properties of a constant object.
+
+#### Constant arrays
+
+You can change the elements of a constant array:
+
+```
+// You can create a constant array:
+const cars = ["Saab", "Volvo", "BMW"];
+
+// You can change an element:
+cars[0] = "Toyota";
+
+// You can add an element:
+cars.push("Audi");
+```
+
+You can NOT reassign the array:
+
+```
+const cars = ["Saab", "Volvo", "BMW"];
+
+cars = ["Toyota", "Volvo", "Audi"];    // ERROR
+```
+
+#### Constant objects
+
+You can change the properties of a constant object:
+
+```
+// You can create a const object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// You can change a property:
+car.color = "red";
+
+// You can add a property:
+car.owner = "Johnson";
+```
+
+Bt you can NOT reassign the object:
+
+```
+const car = {type:"Fiat", model:"500", color:"white"};
+
+car = {type:"Volvo", model:"EX60", color:"red"};    // ERROR
+```
 
 ### Data types:
 
@@ -662,3 +718,5 @@ let greeter = function(name)
 
 console.log(greeter("Tim"));
 ```
+
+
