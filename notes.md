@@ -719,4 +719,12 @@ let greeter = function(name)
 console.log(greeter("Tim"));
 ```
 
+## Math random
 
+The function Math.random(); returns a floating point number between 0 and 1.
+
+Let's suppose you want to make a dice:
+
+`let x = Math.floor(Math.random() * 6) + 1;`
+
+The result is multiplied by 6 because the random function returns a number between 0 - almost never 0 alone. It always have a non-zero decimal - and 1, so multiplying it gives us numbers between 0 and 5 (computers always start with 0). The floor function removes the decimal part and leaves only the integer. The `+ 1` adds the six we want and removes the 0.
