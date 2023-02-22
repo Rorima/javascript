@@ -728,3 +728,32 @@ Let's suppose you want to make a dice:
 `let x = Math.floor(Math.random() * 6) + 1;`
 
 The result is multiplied by 6 because the random function returns a number between 0 - almost never 0 alone. It always have a non-zero decimal - and 1, so multiplying it gives us numbers between 0 and 5 (computers always start with 0). The floor function removes the decimal part and leaves only the integer. The `+ 1` adds the six we want and removes the 0.
+
+## Useful string methods
+
+length: Returns how many characters are within a string.
+`let nameLength = userName.length;`
+
+charAt: Returns a character by its index.
+`let firstLetter = userName.charAt(0);`
+
+indexOf: Returns the index of the first occurrence of a character.
+`let firstO = userName.indexOf('o');`
+
+lastIndexOf: Returns the index of the last occurrence of a character.
+`let lastO = userName.lastIndexOf('o');`
+
+trim: Returns a string without empty spaces at the beginning and at the end.
+`trimmedString = userName.trim();`
+
+toUpperCase: Returns upper case string.
+`upperCaseString = userName.toUpperCase();`
+
+toLowerCase: Returns lower case string.
+`lowerCaseString = userName.toLowerCase();`
+
+replaceAll: Replaces all instances of a given character. The first parameter is what we want replaced, and the second is what we want to replace it with.
+```
+let phoneNumber = "123-456-7890";
+phoneNumber = phoneNumber.replaceAll("-"," ");
+```
