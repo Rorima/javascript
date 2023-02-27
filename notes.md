@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=5CgPaeWy4yQ&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=12&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=ArlN-knSCbs&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=15&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Pop-up_Boxes).
 
@@ -757,3 +757,40 @@ replaceAll: Replaces all instances of a given character. The first parameter is 
 let phoneNumber = "123-456-7890";
 phoneNumber = phoneNumber.replaceAll("-"," ");
 ```
+
+## String slicing
+
+The method `slice()` extracts a section of a string and returns it as a new string, without modifying the original string. Within the parenthesis you can type two values: the starting index and the ending index. If you don't add the last value, it's assumed to copy everything to the end of the string.
+
+Code example:
+
+```
+let fullName = "John Doe";
+let firstName;
+let lastName;
+
+// This goes until four because the last char is not included
+firstName = fullName.slice(0, 4);
+lastName = fullName.slice(5);
+```
+
+You can also have the same result by writing a smarter code. Let's use the method `indexOf()` to do that.
+
+```
+firstName = fullName.slice(0, fullName.indexOf(" "));
+lastName = fullName.slice(fullName.indexOf(" ") + 1);
+```
+
+The first line gets the first name indicating that the slicing should happen between 0 and the first instance of a white space, and the second line gets the last name by slicing and storing the part after the space.
+
+## Pop-up boxes
+
+There are three types of pop-up boxes in JavaScript: confirm, alert, and prompt. To use any of them, type:
+
+```
+confirm("Hi!");
+prompt("Bye!");
+alert("Hello!");
+```
+
+Confirm boxes will return `true` if ok is selected, and return `false` if cancel is selected. Alert boxes won't return anything. Prompt boxes will return whatever is in the text box. Prompt boxes also have an optional second parameter, which is the text that will already be in the text box.
