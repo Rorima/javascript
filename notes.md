@@ -4,11 +4,11 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=ArlN-knSCbs&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=15&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=F_RiOHpQN44&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=16&ab_channel=BroCode).
 
-JS.org: I stopped [here](https://www.learn-js.org/en/Pop-up_Boxes).
+JS.org: I stopped [here](https://www.learn-js.org/en/Callbacks).
 
-W3Schools: I stopped [here](https://www.w3schools.com/js/js_operators.asp)
+W3Schools: I stopped [here](https://www.w3schools.com/js/js_objects.asp)
 
 ## What is JavaScript?
 
@@ -132,17 +132,37 @@ car = {type:"Volvo", model:"EX60", color:"red"};    // ERROR
 
 ### Data types:
 
-JS data types are: 
+JavaScript has 8 datatypes:
 
-* number: 3.14, 123
-* boolean: true, false
-* string: "Hello"
-* Array: []
-* Object: {}
-* undefined
-* null
+1. String
+    `let color = "yellow"`
+2. Number
+    `let length = 16;`
+3. BigInt
+    `let x = BigInt("123456789012345678901234567890");`
+4. Boolean
+    `let x = true;`
+5. Undefined
+    `let firstName = undefined;`
+6. Null
+    `let age = null;`
+7. Symbol
+
+8. Object
+    `const person = {firstName:"John", lastName:"Doe"}; `
 
 `null` is used when a variable should be marked as empty. `undefined` can be used for this purpose, but it should not be used.
+
+### The object datatype:
+
+The object data type can contain:
+
+1. An object
+    `const person = {firstName:"John", lastName:"Doe"}; `
+2. An array
+    `const cars = ["Saab", "Volvo", "BMW"];`
+3. A date
+    `const date = new Date("2022-03-25");`
 
 ### Declaring and printing some data types
 
@@ -794,3 +814,67 @@ alert("Hello!");
 ```
 
 Confirm boxes will return `true` if ok is selected, and return `false` if cancel is selected. Alert boxes won't return anything. Prompt boxes will return whatever is in the text box. Prompt boxes also have an optional second parameter, which is the text that will already be in the text box.
+
+## Checked property
+
+This property lets us know if a checkbox or a radiobutton is selected. It gives us a boolean value.
+
+First, create the checkbox:
+
+```
+<label for="myCheckBox">Subscribe</label>
+<input type="checkbox" id="myCheckBox">
+
+<br>
+
+<button id="myButton">Submit</button>
+```
+
+Now create a function in the JS file to get the value from the checkbox using the `checked` property:
+
+```
+document.getElementById("myButton").onclick = function() {
+    const isCheckd = document.getElementById("myCheckBox").checked;
+    if(isCheckd == true) {
+        customPrint("You're subscribed!");
+    } else {
+        customPrint("You're NOT subscribed!");
+    }
+}
+```
+
+#### Checked property on radiobuttons
+
+Create the radiobuttons:
+
+```
+<label for="visaBtn">Visa</label>
+<input type="radio" name="card" id="visaBtn">
+<br>
+<label for="masterBtn">Master Card</label>
+<input type="radio" name="card" id="masterBtn">
+<br>
+<label for="payBtn">Paypal</label>
+<input type="radio" name="card" id="payBtn">
+<br>
+<button id="myButton2">Submit 2</button>
+```
+
+Create the function for the button:
+
+```
+document.getElementById("myButton2").onclick = function() {
+    const v = document.getElementById("visaBtn").checked;
+    const m = document.getElementById("masterBtn").checked;
+    const p = document.getElementById("payBtn").checked;
+    const radioButtons = [v, m, p];
+    const cardNames = ["Visa", "Master Card", "PayPal"];
+    
+    for (let index = 0; index < radioButtons.length; index++) {
+        if (radioButtons[index]) {
+            customPrint("You're paying with " + cardNames[index] + ".");
+            break;
+        }
+    }
+}
+```
