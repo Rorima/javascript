@@ -4,11 +4,11 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=F_RiOHpQN44&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=16&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=T-Py51gPdAA&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=21&ab_channel=BroCode).
 
-JS.org: I stopped [here](https://www.learn-js.org/en/Callbacks).
+JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
-W3Schools: I stopped [here](https://www.w3schools.com/js/js_objects.asp)
+W3Schools: I stopped [here](https://www.w3schools.com/js/js_events.asp)
 
 ## What is JavaScript?
 
@@ -159,9 +159,9 @@ The object data type can contain:
 
 1. An object
     `const person = {firstName:"John", lastName:"Doe"}; `
-2. An array
+2. An array object
     `const cars = ["Saab", "Volvo", "BMW"];`
-3. A date
+3. A date object
     `const date = new Date("2022-03-25");`
 
 ### Declaring and printing some data types
@@ -184,6 +184,78 @@ let student = true;
 console.log(firstName, lastName);
 console.log("Is a student?", student);
 console.log("Age:", age);
+```
+
+## JavaScript Objects
+
+In real life, a car is an object. A car has properties like weight and color, and methods like start and stop. All cars have the same properties, but the property values differ from car to car. All cars have the same methods, but the methods are performed at different times.
+
+Objects are variables. The difference between them and simple variables is that objects can contain many values. This code assigns many values (fiat, 500, white) to a variable named car:
+
+`const car = {type: "Fiat", model: "500", color: "white"};`
+
+The values are written as name:value pairs (name and value separated by a colon). It is acommon practice to declare objects with the `const` keyword.
+
+An object in JS is usually used as a data structure, similar to a dictionary in Python or a map in Java.
+
+To initialize an object, use curly braces:
+
+```
+let emptyObject = {};
+let personObject = {
+    firstName: "John",
+    lastName: "Doe"
+}
+```
+
+### Member addressing
+
+Members of objects can be addressed using the brackets operator `[]`, very much like arrays, but just like many other object oriented languages, the period `.` operator can also be used. They are very similar, except for the fact that brackets return a member by using a string, in contrast to the period operator, which requires the member to be a simple word (the word should not contain spaces, start with a number or use illegal characters).
+
+For example, we can continue to fill the person object with more details:
+
+```
+personObject.age = 23;
+personObject["salary"] = 14000;
+```
+
+JS objects are containers for **named values** called properties.
+
+### Object Methods
+
+Objects can also have methods. Methods are actions that can be performed on objects. Methods are stoered in properties as **function definitions**. You'll learn more about functions in the future. If you don't understand this part very well, do not be afraid. When you learn functions, just make sure to come back to understand thoroughly how object methods work.
+
+A method is a function stored as a property:
+
+```
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    id : 5566,
+    fullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+```
+
+The `this` keyword refers to the outer scope variables, the variables that were declared inside the person object. If you don't use the `this` keyword, you cannot use these variables.
+
+This is how you access a method:
+
+`console.log(person.fullName());`
+
+### Iteration
+
+Iterating over members of a dictionary is not a trivial task, since iterating over objects can also yield members who don't actually belong to an object. Therefore, we must use the `hasOwnProperty` method to check that the member in fact belongs to the object.
+
+```
+for (var member in personObject)
+{
+    if (personObject.hasOwnProperty(member))
+    {
+        console.log("the member " + member + " of personObject is " + personObject[member])
+    }
+}
 ```
 
 ## Arithmetic expressions
@@ -592,6 +664,34 @@ switch(rank)
 
 In this example, "Private" and "Sergeant" both trigger the first sentence, "Commander" triggers the second sentence and "Captain" triggers the third. If an unknown rank was evaluated, the default keyword defines the action for this case (optional). We must use  the `break` statement between every code block to avoid the `switch` froom executing the next code block. Using the `switch` statement in general is not recommended, because forgetting the `break` key word causes very confusing results.
 
+#### Switch with conditions
+
+You can also test for certain conditions. Let's suppose you want to tell how good of a grade a student got:
+
+```
+let grade = 65;
+
+switch(true) {
+    case grade >= 90:
+        console.log("You did great!");
+        break;
+    case grade >= 80:
+        console.log("You did good!");
+        break;
+    case grade >= 70:
+        console.log("You did okay!");
+        break;
+    case grade >= 60:
+        console.log("You barely passed!");
+        break;
+    case grade < 60:
+        console.log("You FAILED!");
+        break;
+    default:
+        console.log(grade, "is not a valid number!");
+}
+```
+
 ## Loops
 
 ### The for statement
@@ -669,45 +769,6 @@ for(let i = 0; i < 10; i++)
     }
     // if we got here, then i is odd
     console.log(i, "is an odd number.");
-}
-```
-
-## Objects
-
-An object in JS is usually used as a data structure, similar to a dictionary in Python or a map in Java. In this tutorial, we will learn how to use objects as a data strucutre.
-
-To initialize an object, use curly braces:
-
-```
-let emptyObject = {};
-let personObject = {
-    firstName: "John",
-    lastName: "Doe"
-}
-```
-
-### Member addressing
-
-Members of objects can be addressed using the brackets operator `[]`, very much like arrays, but just like many other object oriented languages, the period `.` operator can also be used. They are very similar, except for the fact that brackets return a member by using a string, in contrast to the period operator, which requires the member to be a simple word (the word should not contain spaces, start with a number or use illegal characters).
-
-For example, we can continue to fill the person object with more details:
-
-```
-personObject.age = 23;
-personObject["salary"] = 14000;
-```
-
-### Iteration
-
-Iterating over members of a dictionary is not a trivial task, since iterating over objects can also yield members who don't actually belong to an object. Therefore, we must use the `hasOwnProperty` method to check that the member in fact belongs to the object.
-
-```
-for (var member in personObject)
-{
-    if (personObject.hasOwnProperty(member))
-    {
-        console.log("the member " + member + " of personObject is " + personObject[member])
-    }
 }
 ```
 
