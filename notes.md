@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=T-Py51gPdAA&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=21&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=A2x75iOqidA&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=28&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -638,6 +638,26 @@ console.log("1" == 1); // true
 console.log("1" === 1); // false
 ```
 
+### The ternary operator
+
+The ternary operator is a shorcut for an if/else statement. It takes 3 operands:
+
+1. A condition with ?
+2. An expression if true :
+3. An expression if false
+
+Syntax:
+
+condition ? exprIfTrue : exprIfFalse
+
+Code example:
+
+```
+let age = 18;
+
+age >= 18 ? console.log("You may enter!") : console.log("You may not enter!");
+```
+
 ### The switch statement
 
 The `switch` statement is similar to the `switch` statement from the C programming language, but also supports strings. The `switch` statement is used to select between more than two different options, and to run the same code for more than one option.
@@ -738,6 +758,18 @@ while(i < 5)
     console.log(i);
     i = i + 1;
 }
+```
+
+#### Do while
+
+It works the same way as the while loop, but the condition is checked in the end instead of the beginning.
+
+```
+let i = 0;
+do {
+    console.log(i);
+    i = i + 1;
+} while(i < 5)
 ```
 
 #### Break and continue statements
