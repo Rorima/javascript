@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=A2x75iOqidA&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=28&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=tyK6e8Zvdvk&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=31&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -1081,4 +1081,98 @@ You have ${items} items in your cart.
 Your total is $ ${total}.`
 
 console.log(text);
+```
+
+## Format currency
+
+The `toLocaleString(locale, {options});` method returns a string with a language sensitive representation of a number. It is perfect for formatting a number as some currency.
+
+The `locale` argument specifies the language, which if pass `undefined` it will use the default from your browser, while the argument `options` deals with the formatting. Using it we can specify if the number is a currency, a unit of mesurament, a percent and etc.
+
+Example:
+
+```
+let myNum = 123456.789;
+
+customPrint("US:");
+customPrint(myNum.toLocaleString("en-US")); // US English
+
+customPrint("IN:");
+customPrint(myNum.toLocaleString("hi-IN")); // Hindi
+
+customPrint("DE:");
+customPrint(myNum.toLocaleString("de-DE")); // Standard German
+
+customPrint("BR:");
+customPrint(myNum.toLocaleString("pt-BR")); // Brazilian Portuguese
+```
+
+### Currency
+
+You'll choose currency using the `options` argument.
+
+```
+customPrint("USD (US Dollar):");
+customPrint(myNum.toLocaleString("en-US", {style: "currency", currency: "USD"}));
+customPrint(" ");
+
+customPrint("INR (Indian Rupee):");
+customPrint(myNum.toLocaleString("hi-IN", {style: "currency", currency: "INR"}));
+customPrint(" ");
+
+customPrint("EUR (Euro):");
+customPrint(myNum.toLocaleString("de-DE", {style: "currency", currency: "EUR"}));
+customPrint(" ");
+
+customPrint("BRL (Brazilian Real):");
+customPrint(myNum.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}));
+customPrint(" ");
+```
+
+### Percentage
+
+```
+let percNum = .5;
+customPrint(percNum.toLocaleString(undefined, {style: "percent"}));
+```
+
+### Units
+
+```
+let un = 30;
+customPrint("Celsius:");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "celsius"}));
+customPrint(" ");
+
+customPrint("Fahrenheit");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "fahrenheit"}));
+customPrint(" ");
+
+customPrint("Kilometers");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "kilometer"}));
+customPrint(" ");
+
+customPrint("Meters");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "meter"}));
+customPrint(" ");
+
+customPrint("Centimeters");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "centimeter"}));
+customPrint(" ");
+
+customPrint("Miles");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "mile"}));
+customPrint(" ");
+
+customPrint("Kilograms");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "kilogram"}));
+customPrint(" ");
+
+customPrint("Pounds");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "pound"}));
+customPrint(" ");
+
+customPrint("Grams");
+customPrint(un.toLocaleString(undefined, {style: "unit", unit: "gram"}));
+customPrint(" ");
 ```
