@@ -1051,3 +1051,21 @@ let multipliedNumbers = numbers.map(multiplyByTwo);
 
 console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
 ```
+
+## Template literals
+
+Template literals are delimited with backticks (`) instead of double or single quotes. They allow embedded variables and expressions. In order to embed a variable, use a dolar sign followed by curly brackets:
+
+`console.log(\`Hello, ${userName}!\`);`
+
+Code example:
+
+```
+let userName = "John";
+let items = 3;
+let total = 75;
+
+console.log(`Hello ${userName}!`);
+console.log(`You have ${items} in your cart.`);
+console.log(`Your total is $ ${total}.`);
+```
