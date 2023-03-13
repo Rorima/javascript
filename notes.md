@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=tyK6e8Zvdvk&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=31&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=qSieWVc2a7U&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=32&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -1175,4 +1175,131 @@ customPrint(" ");
 customPrint("Grams");
 customPrint(un.toLocaleString(undefined, {style: "unit", unit: "gram"}));
 customPrint(" ");
+```
+
+## Events
+
+An HTML event can be something the browser does, or something a user does. Here are some examples of HTML events:
+
+* An HTML web page has finished loading;
+* An HTML input field was changed;
+* An HTML button was clicked.
+
+Often, when an event happens, you may want to do something. JS lets you execute code when events are detected.
+
+### Common HTML events
+
+Here's a list of the most used HTML events and codes of example.
+
+#### onchange
+
+An HTML element has been changed.
+
+Code example:
+
+HTML:
+
+```
+<select id="mySelect">
+    <option value="Select">Select</option>
+    <option value="Apple">Apple</option>
+    <option value="Banana">Banana</option>
+    <option value="Avocado">Avocado</option>
+    <option value="Orange">Orange</option>
+</select>
+```
+
+JS:
+
+```
+document.getElementById("mySelect").onchange = function() {
+    let val = document.getElementById("mySelect").value;
+    if (val != "Select") {
+        document.getElementById("demo").innerHTML += `<br>You chose ${val}.`;
+    }
+}
+```
+
+#### onclick
+
+HTML:
+
+```
+<label id="incLabel">0</label><br>
+<button id="inc">Increment</button>
+```
+
+JS: 
+
+```
+document.getElementById("inc").onclick = function() {
+    x += 1;
+    document.getElementById("incLabel").innerHTML = x;
+}
+```
+
+#### onmouseover and onmouseout
+
+The `onmouseover` event occurs when the mouse piotner enters an element. It is often used together with the `onmouseout` event, which occurs when the mouse pointer leaves the element.
+
+Syntax:
+
+`object.onmouseover = function(){myScript};`
+
+Code example:
+
+```
+document.getElementById("console").onmouseover = function() {
+    document.getElementById("demo").innerHTML = "Your mouse pointer is <mark>inside</mark> the console!";
+}
+
+document.getElementById("console").onmouseout = function () {
+    document.getElementById("demo").innerHTML = "Your mouse pointer is <mark>outside</mark> the console!";
+}
+```
+
+#### onkeydown and onkeyup
+
+The `onkeydown` event occurs when the user **presses a key** on the keyboard. It is often used together with the `onkeyup` event, which occurs when the a key is released. It works on input boxes.
+
+Syntax:
+
+`object.onkeydown = function(){myScript};`
+
+```
+document.getElementById("myEntry").onkeydown = function() {
+    document.getElementById("text").innerHTML = "You <mark>pressed</mark> a key!";
+}
+
+document.getElementById("myEntry").onkeyup = function() {
+    document.getElementById("text").innerHTML = "You <mark>released</mark> a key!";
+}
+```
+
+#### onload
+
+The onload event occurs when an object has been loaded. It is most often used within the `<body>` element to execute a script once a web page has completely loaded all content (including images, script files, CSS files, etc.).
+
+The onload event can be used to check the visitor's browser type and browser version, and load the proper version of the web page based on the information.
+
+```
+document.getElementById("body").onload = function() {
+    document.getElementById("demo").innerHTML = "Page loaded."
+}
+```
+
+Another example:
+
+```
+document.getElementById("body").onload = function() {
+    var text = "";
+
+    if (navigator.cookieEnabled == true) {
+        text = "Cookies are enabled.";
+    } else {
+        text = "Cookies are not enabled.";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+}
 ```
