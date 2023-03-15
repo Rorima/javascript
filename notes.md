@@ -747,6 +747,22 @@ for(var i = 0; i < myArray.length; i++)
 
 Notice that we used the `length` property of an array, which returns the number of members in the array, so we know when to stop iterating.
 
+#### For of
+
+The `for of` statement loops through the value sof an iterable object. It lets you loop over iterable data strucutres such as arrays, strings, maps, nodelists, and more.
+
+Syntax:
+
+```
+for(variable of iterable) {
+    // code block to be executed.
+}
+```
+
+Variable: For every iteration the value of the next property is assigned to the variable. Variable can be declared with `const`, `let`, or `var`.
+
+Iterable: An object that has itreable properties.
+
 ### The while statement
 
 The `while` statement is a more simple version of the `for` statement, which checks if an expression evaluates to `true` and runs as long as it says `true`.
