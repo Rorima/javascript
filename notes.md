@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=C0qhgTbtkS0&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=33&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=Q8rvWnOD9nQ&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=35&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -860,34 +860,75 @@ The result is multiplied by 6 because the random function returns a number betwe
 
 ## Useful string methods
 
-length: Returns how many characters are within a string.
+All string methods return a new string. They don't modify the original string. Strings are immutable in JavaScript. This means that Strings cannot be changed, only replaced.
+
+### length
+
+Returns how many characters are within a string.
 `let nameLength = userName.length;`
 
-charAt: Returns a character by its index.
+### charAt
+
+Returns a character by its index.
 `let firstLetter = userName.charAt(0);`
 
-indexOf: Returns the index of the first occurrence of a character.
+### indexOf
+
+Returns the index of the first occurrence of a character.
 `let firstO = userName.indexOf('o');`
 
-lastIndexOf: Returns the index of the last occurrence of a character.
+### lastIndexOf
+
+Returns the index of the last occurrence of a character.
 `let lastO = userName.lastIndexOf('o');`
 
-trim: Returns a string without empty spaces at the beginning and at the end.
+### trim
+
+Returns a string without empty spaces at the beginning and at the end.
 `trimmedString = userName.trim();`
 
-toUpperCase: Returns upper case string.
+### toUpperCase
+
+Returns upper case string.
 `upperCaseString = userName.toUpperCase();`
 
-toLowerCase: Returns lower case string.
+### toLowerCase
+
+Returns lower case string.
 `lowerCaseString = userName.toLowerCase();`
 
-replaceAll: Replaces all instances of a given character. The first parameter is what we want replaced, and the second is what we want to replace it with.
+### concat
+
+This method joins two or more strings:
+
+```
+let text = "Hello".concat(", ", "World!");
+let text1 = "Hello";
+let text2 = "World!";
+let text3 = text1.concat(", ", text2);
+```
+
+### replace
+
+This method replaces a specified value with another value in a string:
+
+```
+let text = "Please visit Japan!";
+let newText = text.replace("Japan", "Italy")
+```
+
+Note that the `replace()` method does not change the string it is called on. It returns a new string, and only the first match is replaced.
+
+### replaceAll
+
+This method replaces all instances of a given character. The first parameter is what we want replaced, and the second is what we want to replace it with.
+
 ```
 let phoneNumber = "123-456-7890";
 phoneNumber = phoneNumber.replaceAll("-"," ");
 ```
 
-## String slicing
+### slice
 
 The method `slice()` extracts a section of a string and returns it as a new string, without modifying the original string. Within the parenthesis you can type two values: the starting index and the ending index. If you don't add the last value, it's assumed to copy everything to the end of the string.
 
@@ -911,6 +952,46 @@ lastName = fullName.slice(fullName.indexOf(" ") + 1);
 ```
 
 The first line gets the first name indicating that the slicing should happen between 0 and the first instance of a white space, and the second line gets the last name by slicing and storing the part after the space.
+
+### padStart
+
+This method pads a string with another string. This is a string method, and if you want to pad a number, convert the number to a string first.
+
+```
+let numb = 5;
+let text = numb.toString();
+let padded = text.padStart(4, "0");
+```
+
+It is useful to add zeros in front of a number, for example.
+
+### padEnd
+
+It works the same as `padStart()`.
+
+```
+let numb = 5;
+let text = numb.toString();
+let padded = text.padEnd(3, ".");
+```
+
+### split
+
+A string can be converted to an array with the `split()` method.
+
+```
+text.split(",")    // Split on commas
+text.split(" ")    // Split on spaces
+text.split("|")    // Split on pipe
+```
+
+If the separator is omitted, the returned array will contain the whole string in index \[0\]. If the separator is "", the returned array will be an array of single characters.
+
+`text.split("");`
+
+### String reference
+
+For a complete string reference [click here](https://www.w3schools.com/jsref/jsref_obj_string.asp)
 
 ## Pop-up boxes
 
