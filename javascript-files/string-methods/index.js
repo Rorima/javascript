@@ -6,18 +6,26 @@ function customPrint(value)
     document.getElementById("demo").innerHTML = values; 
 }
 
+function useMethods(modifiedString, methodName) {
+    customPrint(`${methodName} method:`);
+    customPrint("Modified string: " + modifiedString);
+    customPrint(" ");
+}
+
 let userName = "My Name";
-customPrint("String: " + userName);
-customPrint(" ");
+customPrint("String: " + userName + "<br>")
 
-customPrint("String length: " + userName.length);
-customPrint("First character: " + userName.charAt(0));
-customPrint("First A: " + userName.indexOf('a'));
-customPrint("Last A: " + userName.lastIndexOf('a'));
-customPrint("Trimmed string: " + userName.trim());
-customPrint("Upper case string: " + userName.toUpperCase());
-customPrint("Lower case string: " + userName.toLowerCase());
-
-let phoneNumber = "123-456-7890";
-phoneNumber = phoneNumber.replaceAll("-"," ");
-customPrint(phoneNumber);
+useMethods(userName.length, "length");
+useMethods(userName.charAt(0), "charAt(0)");
+useMethods(userName.indexOf('a'), "indexOf('a')");
+useMethods(userName.lastIndexOf('m'), "lastIndexOf('m')");
+useMethods(userName.trim(), "trim");
+useMethods(userName.toUpperCase(), "toUpperCase");
+useMethods(userName.toLowerCase(), "toLowerCase");
+useMethods("This is ".concat(userName), "concat");
+useMethods(userName.replace("My", "Your"), "replace");
+useMethods(userName.replaceAll('a', 'o'), "replaceAll");
+useMethods(userName.slice(3), "slice");
+useMethods(userName.padStart(10, "#"), "padStart");
+useMethods(userName.padEnd(10, '#'), "padEnd");
+useMethods(userName.split(""), "split");

@@ -8,7 +8,7 @@ Bro code: I stopped [here](https://www.youtube.com/watch?v=Q8rvWnOD9nQ&list=PLZP
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
-W3Schools: I stopped [here](https://www.w3schools.com/js/js_string_methods.asp)
+W3Schools: I stopped [here](https://www.w3schools.com/js/js_string_search.asp)
 
 ## What is JavaScript?
 
