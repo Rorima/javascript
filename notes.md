@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=Q8rvWnOD9nQ&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=35&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=YOI6CEVmQyM&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=38&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -408,9 +408,9 @@ Because JS arrays are just special kinds of objects, you can have elements of di
 
 `var myArray = ["string", 10, {}];`
 
-## Manipulating arrays
+### Manipulating arrays
 
-### Pushing and popping
+#### Pushing and popping
 
 Arrays can also function as a stack. The `push` and `pop` methods insert and remove variables from the end of an array.
 
@@ -433,7 +433,7 @@ console.log(myStack);
 
 The `pop` method returns the last item from the stack, removing it from the stack.
 
-### Shifting and unshifting
+#### Shifting and unshifting
 
 The `unshift` and `shift` methods are similar to `push` and `pop`, only they work from the beginning of the array. We can use `push` and `shift` to utilize an array as a queue.
 
@@ -454,7 +454,7 @@ myStack.unshift(1);
 console.log(myStack);
 ```
 
-### Splicing
+#### Splicing
 
 Splicing arrays in JS removes a certain part from an array to create a new array, made up from the part we took out. For example, if we wanted to remove the five numbers from the following array beginning from the 3rd index, we would do the following:
 
@@ -471,6 +471,42 @@ myStack: `(4) [1, 2, 3, 9]`
 newStack: `(5) [4, 5, 6, 7, 8]`
 
 Notice that the first array was modified, losing it's values from the index indicated until the stop indicated.
+
+#### sort
+
+You can sort array items in alphabetial order or reverse alphabetical order using this method.
+
+```
+let fruits = ["banana", "apple", "orange", "mango"];
+fruits = fruits.sort(); // alphabetical order
+console.log(fruits);
+fruits = fruits.reverse(); // reverse alphabetical order
+console.log();
+```
+
+## Spread operator
+
+The spread operator `...` allows an iterable such as an array or string to be expanded in places where zero or more arguments are expected. It unpacks the elements.
+
+```
+let userName = "Shrek Evergreen";
+console.log(...userName);
+```
+
+You can use this operator along with the `Math.max` method, for example. It accepts varied number of arguments. So you can pass a value or a variable. If you pass an array as an argument, it will not calculate its max value, but if you pass an array with the spread operator, it will.
+
+```
+const nums = [3, 1, 5, 2, 4];
+console.log(Math.max(...nums));
+```
+
+It can also be useful if you want to merge two arrays:
+
+```
+const cast1 = ["Shrek", "Fiona", "Donkey"];
+const cast2 = ["Cat in boots", "Dragon"];
+cast1.push(...cast2);
+```
 
 ## Type conversion
 
