@@ -490,10 +490,10 @@ The spread operator `...` allows an iterable such as an array or string to be ex
 
 ```
 let userName = "Shrek Evergreen";
-console.log(...userName);
+console.log(...userName); // displays letter by letter
 ```
 
-You can use this operator along with the `Math.max` method, for example. It accepts varied number of arguments. So you can pass a value or a variable. If you pass an array as an argument, it will not calculate its max value, but if you pass an array with the spread operator, it will.
+You can use this operator along with the `Math.max` method, for example. It accepts a varied number of arguments. So you can pass a value or a variable. If you pass an array as an argument, it will not calculate its max value, but if you pass an array with the spread operator, it will.
 
 ```
 const nums = [3, 1, 5, 2, 4];
@@ -504,9 +504,30 @@ It can also be useful if you want to merge two arrays:
 
 ```
 const cast1 = ["Shrek", "Fiona", "Donkey"];
-const cast2 = ["Cat in boots", "Dragon"];
+const cast2 = ["Puss in boots", "Dragon"];
 cast1.push(...cast2);
 ```
+
+## Rest parameters
+
+Rest parameters represent an indefinite number of parameters. It packs all arguments into an array, and you deal with these parameters as an array.
+
+```
+function sum(...numbers) {
+    let total = 0;
+
+    for(let number of numbers) {
+        total += number;
+    }
+
+    return total;
+}
+```
+
+If you're mixing and matching rest parameters along with some name parameters, make sure that the rest parameters take up the last parameter within a function declaration.
+
+Example:
+`function sum(x, y, ...numbers);`
 
 ## Type conversion
 
