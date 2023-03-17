@@ -10,12 +10,12 @@ var callback = function() {
 }
 
 function sum(a, b) {
-    customPrint(a + b);
+    return a + b;
 }
 
 function useSum(func, a, b) {
-    func(a, b);
+    return func(a, b);
 }
 
-useSum(sum, 2, 3)
+customPrint(useSum(sum, 2, 3));
 setTimeout(callback, 5000);

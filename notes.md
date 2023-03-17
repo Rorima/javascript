@@ -1128,7 +1128,7 @@ document.getElementById("myButton2").onclick = function() {
 
 ## Callbacks
 
-Callbacks are functions that are passed as arguments to other functions. This is a very important feature of asynchronous programming, and it enables the function that receives the callback to call our code when it finishes a long task, while allowing us to continue the execution of the code.
+Callbacks are functions that are passed as arguments to other functions. This is a very important feature of asynchronous programming, and it enables the function that receives the callback to call our code when it finishes a long task, while allowing us to continue the execution of the code. When you pass the function as an argument to another function, make sure not to pass the parethesis with it, just the name of the function.
 
 For example:
 
@@ -1151,6 +1151,35 @@ setTimeout(function() {
 ```
 
 Like regular functions, callbacks can receive arguments and be executed more than once.
+
+Another example:
+
+```
+function sum(a, b) {
+    return a + b;
+}
+
+function sub(a, b) {
+    return a - b;
+}
+
+function mult(a, b) {
+    return a * b;
+}
+
+function divi(a, b) {
+    return a / b;
+}
+
+function useFunc(func, a, b) {
+    return func(a, b);
+}
+
+console.log(useFunc(sum, 8, 4);
+console.log(useFunc(sub, 8, 4);
+console.log(useFunc(mult, 8, 4);
+console.log(useFunc(divi, 8, 4);
+```
 
 ## Arrow functions
 
