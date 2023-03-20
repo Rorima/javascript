@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=YOI6CEVmQyM&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=38&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=qwj9XqtLOO0&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=41&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -1233,6 +1233,58 @@ const multiplyByTwo = number => number * 2;
 let multipliedNumbers = numbers.map(multiplyByTwo);
 
 console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
+```
+
+## for each
+
+The `array.forEach()` method executes a provided callback function once for each array element. It modifies the array, and returns nothing. It is often used with arrow functions. This function accepts three parameters: the current value of the array, the index and the array itself. This function that is given as an argument to `array.forEach()` is called a callback function. Keep in mind that you're not forced to use all parameters.
+
+Let's suppose we want to print on the console the items of an array:
+
+```
+let people = ['John', 'Joe', 'George'];
+people.forEach(person => {
+    console.log("The name of the current person is: " + person);
+});
+```
+
+See the following list of objects:
+
+```
+let products = [
+    {
+        productName: "Smartphone",
+        productValue: 249.99,
+        descountPerc: 0.20
+    },
+    {
+        productName: "Laptop",
+        productValue: 529.00,
+        descountPerc: 0.30
+    },
+    {
+        productName: "TV",
+        productValue: 479.99,
+        descountPerc: 0.35
+    }
+];
+```
+
+Let's suppose we want to show the user the name and value of the product:
+
+```
+products.forEach(product => {
+    console.log(`Product: ${product.productName}`)
+    console.log(`Price: $${product.productValue}`)
+});
+```
+
+Now let's add a new property to our object: discount value:
+
+```
+products.forEach(product => {
+    product.discountValue = product.productValue * product.descountPerc;
+});
 ```
 
 ## Template literals
