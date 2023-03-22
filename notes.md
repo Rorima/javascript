@@ -1538,3 +1538,32 @@ document.getElementById("body").onload = function() {
     document.getElementById("demo").innerHTML = text;
 }
 ```
+
+## map method
+
+The `map()` method executes a provided callback function once for each array element and creates a new array.
+
+Let's first create an array and a function:
+
+```
+let numbers = [1, 2, 3, 4, 5];
+
+function square(element) {
+    return Math.pow(element, 2);
+}
+```
+
+Now we will use the `map()` method, returning its result to another variable:
+
+```
+let squares = numbers.map(square);
+console.log(squares);
+```
+
+You can also use arrow functions inside map:
+
+```
+let cubes = numbers.map(element => {
+    return Math.pow(element, 3)
+});
+```
