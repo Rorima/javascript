@@ -1,0 +1,28 @@
+body{
+    font-size: 20px;
+    color: #e6e6e6;
+    background-color: #1a1a1a;
+}
+
+h1, p{
+    text-align: center;
+}
+
+#controls{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+label{
+    justify-content: center;
+    display: flex;
+}
+
+button{
+    width: 100px;
+}
+
+#buttons{
+    justify-content: center;
+    display: flex;
+}
