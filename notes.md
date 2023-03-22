@@ -1539,7 +1539,7 @@ document.getElementById("body").onload = function() {
 }
 ```
 
-## map method
+## Map method
 
 The `map()` method executes a provided callback function once for each array element and creates a new array.
 
@@ -1565,5 +1565,18 @@ You can also use arrow functions inside map:
 ```
 let cubes = numbers.map(element => {
     return Math.pow(element, 3)
+});
+```
+
+## Filter method
+
+The `filter()` method creates a new array with all elements that pass a test provided by a function. You can use arrow functions with it, and it works similarly to the `map()` method.
+
+Let's create an example. Let's make an array containing several ages, and let's create a new array with ages equal to or above 18:
+
+```
+let ages = [18, 16, 21, 17, 19, 90];
+let adults = ages.filter(age => {
+    return age >= 18;
 });
 ```
