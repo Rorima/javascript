@@ -1580,3 +1580,20 @@ let adults = ages.filter(age => {
     return age >= 18;
 });
 ```
+
+## Reduce method
+
+The `reduce()` method reduces an array to a single value. You could use it to sum up the values of an array. It works similarly to `map()` and `filter()` methods, but for this method you'll have to use two parameters. The first is the total, the second is the element. See the example below:
+
+```
+let prices = [5, 10, 15, 20, 25];
+
+function checkOut(total, element) {
+    return total + element;
+}
+```
+
+For each iteration the element will be added to total, and at the end, the whole array will have been reduced to this total amount.
+
+`total = prices.reduce(checkOut);`
+
