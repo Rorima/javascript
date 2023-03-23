@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=qwj9XqtLOO0&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=41&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=IHrqpZI1_yc&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=45&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -472,7 +472,7 @@ newStack: `(5) [4, 5, 6, 7, 8]`
 
 Notice that the first array was modified, losing it's values from the index indicated until the stop indicated.
 
-#### sort
+#### Sorting
 
 You can sort array items in alphabetial order or reverse alphabetical order using this method.
 
@@ -483,6 +483,17 @@ console.log(fruits);
 fruits = fruits.reverse(); // reverse alphabetical order
 console.log();
 ```
+
+You can also stablish a criteria using a callback function [see callback and arrow functions]. It accepts two parameters, which will be compared at each iteration. The function should return a negative, zero, or positive value, depending on the arguments.
+
+```
+let grades = [100, 50, 90, 60, 80, 70];
+let sorted = grades.sort((x, y) => {
+    return y - x;
+});
+```
+
+Here the array will be sorted in descending order.
 
 ## Spread operator
 
@@ -903,6 +914,29 @@ let greeter = function(name)
 }
 
 console.log(greeter("Tim"));
+```
+
+## Function expressions
+
+A function expression is function without a name (anonymous function). It avoids polluting the global scope with names. It's made for you to write it and then forget about it. Let's assign a function to a variable:
+
+```
+const greeting = function() {
+    console.log("Hello!");
+}
+greeting();
+```
+
+In the code above, we declared a nameless function and assigned it to the `greeting` variable.
+
+An example of a function expression being assigned to a button:
+
+```
+let counter = 0;
+document.getElementById("button1").onclick = function() {
+    counter += 1;
+    document.getElementById("demo").innerHTML = counter;
+}
 ```
 
 ## Math random
