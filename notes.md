@@ -939,6 +939,60 @@ document.getElementById("button1").onclick = function() {
 }
 ```
 
+## Arrow functions
+
+Arrow functions are a feature of ES6 and their behavior are generally the same of a function. They are like lambda functions in Python. These are anonymous functions with a special syntax.
+
+Arrow functions are often used as callbacks of native JS functions like map, filter or sort. The reason of their name is due to the use of `=>` in the syntax.
+
+To define an arrow function, we use the `() => {}` strucutre as follows:
+
+```
+const greet = (name) => { return "Hello " + name + "!"; }
+
+console.log(greet("Eric"));      // prints out Hello Eric!
+```
+
+In this function, the `name` argument to the `greet` function is used inside the function to construct a new string and return it using the `return` statement.
+
+In case that the function only receives one argument, we can omit the parenthesis:
+
+```
+const greet = name => { return "Hello " + name + "!"; }
+
+console.log(greet("Eric"));      // prints out Hello Eric!
+```
+
+And, in case that we want to do an explicit return of the function and we have only one line of code, we can avoid the `return` statement and omit the brackets too:
+
+```
+const greet = name => "Hello " + name + "!";
+
+console.log(greet("Eric"));      // prints out Hello Eric!
+```
+
+Using an arrow as a callback compared to a normal function [you will learn about callbacks in the future]:
+
+```
+let numbers = [3, 5, 8, 9, 2];
+
+// Old way
+function multiplyByTwo(number){
+    return number * 2;
+}
+
+let multipliedNumbers = numbers.map(multiplyByTwo);
+
+console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
+
+// Using ES6 arrow functions
+const multiplyByTwo = number => number * 2;
+
+let multipliedNumbers = numbers.map(multiplyByTwo);
+
+console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
+```
+
 ## Math random
 
 The function Math.random(); returns a floating point number between 0 and 1.
@@ -1150,7 +1204,60 @@ document.getElementById("myButton2").onclick = function() {
     const p = document.getElementById("payBtn").checked;
     const radioButtons = [v, m, p];
     const cardNames = ["Visa", "Master Card", "PayPal"];
-    
+    ## Arrow functions
+
+Arrow functions are a feature of ES6 and their behavior are generally the same of a function. They are like lambda functions in Python. These are anonymous functions with a special syntax.
+
+Arrow functions are often used as callbacks of native JS functions like map, filter or sort. The reason of their name is due to the use of `=>` in the syntax.
+
+To define an arrow function, we use the `() => {}` strucutre as follows:
+
+```
+const greet = (name) => { return "Hello " + name + "!"; }
+
+console.log(greet("Eric"));      // prints out Hello Eric!
+```
+
+In this function, the `name` argument to the `greet` function is used inside the function to construct a new string and return it using the `return` statement.
+
+In case that the function only receives one argument, we can omit the parenthesis:
+
+```
+const greet = name => { return "Hello " + name + "!"; }
+
+console.log(greet("Eric"));      // prints out Hello Eric!
+```
+
+And, in case that we want to do an explicit return of the function and we have only one line of code, we can avoid the `return` statement and omit the backets too:
+
+```
+const greet = name => "Hello " + name + "!";
+
+console.log(greet("Eric"));      // prints out Hello Eric!
+```
+
+Using an arrow as a callback compared to a normal function:
+
+```
+let numbers = [3, 5, 8, 9, 2];
+
+// Old way
+function multiplyByTwo(number){
+    return number * 2;
+}
+
+let multipliedNumbers = numbers.map(multiplyByTwo);
+
+console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
+
+// Using ES6 arrow functions
+const multiplyByTwo = number => number * 2;
+
+let multipliedNumbers = numbers.map(multiplyByTwo);
+
+console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
+```
+
     for (let index = 0; index < radioButtons.length; index++) {
         if (radioButtons[index]) {
             customPrint("You're paying with " + cardNames[index] + ".");
@@ -1213,60 +1320,6 @@ console.log(useFunc(sum, 8, 4);
 console.log(useFunc(sub, 8, 4);
 console.log(useFunc(mult, 8, 4);
 console.log(useFunc(divi, 8, 4);
-```
-
-## Arrow functions
-
-Arrow functions are a feature of ES6 and their behavior are generally the same of a function. They are like lambda functions in Python. These are anonymous functions with a special syntax.
-
-Arrow functions are often used as callbacks of native JS functions like map, filter or sort. The reason of their name is due to the use of `=>` in the syntax.
-
-To define an arrow function, we use the `() => {}` strucutre as follows:
-
-```
-const greet = (name) => { return "Hello " + name + "!"; }
-
-console.log(greet("Eric"));      // prints out Hello Eric!
-```
-
-In this function, the `name` argument to the `greet` function is used inside the function to construct a new string and return it using the `return` statement.
-
-In case that the function only receives one argument, we can omit the parenthesis:
-
-```
-const greet = name => { return "Hello " + name + "!"; }
-
-console.log(greet("Eric"));      // prints out Hello Eric!
-```
-
-And, in case that we want to do an explicit return of the function and we have only one line of code, we can avoid the `return` statement and omit the backets too:
-
-```
-const greet = name => "Hello " + name + "!";
-
-console.log(greet("Eric"));      // prints out Hello Eric!
-```
-
-Using an arrow as a callback compared to a normal function:
-
-```
-let numbers = [3, 5, 8, 9, 2];
-
-// Old way
-function multiplyByTwo(number){
-    return number * 2;
-}
-
-let multipliedNumbers = numbers.map(multiplyByTwo);
-
-console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
-
-// Using ES6 arrow functions
-const multiplyByTwo = number => number * 2;
-
-let multipliedNumbers = numbers.map(multiplyByTwo);
-
-console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
 ```
 
 ## for each
@@ -1631,3 +1684,65 @@ For each iteration the element will be added to total, and at the end, the whole
 
 `total = prices.reduce(checkOut);`
 
+## Shuffle an array
+
+Let's first create an algorithm to shuffle some cards. Create an array with some cards and a function to shuffle it.
+
+
+```
+let cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+function shuffle(array) {
+    // Algorithm to shuffle cards
+}
+```
+
+Let's start shuffling from the last index to the first. So we need to take the last index position:
+
+```
+function shuffle(array) {
+    let currentIndex = array.length - 1;
+}
+```
+
+We need a while loop to go through the whole array from the last index to the first. So while the condition will be `currentIndex != 0`.
+
+```
+function shuffle(array) {
+    let currentIndex = array.length - 1;
+    
+    while (currentIndex != 0) {
+        // code
+    }
+}
+```
+
+We will need a random number between 0 and the length of the array:
+
+```
+function shuffle(array) {
+    let currentIndex = array.length - 1;
+    
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * array.length);
+    }
+}
+```
+
+We will need to decrease the `currentIndex` so that we can change one index at a time, and we need a little algorithm to change between the `currentIndex` and the `randomIndex`.
+
+```
+function shuffle(array) {
+    let currentIndex = array.length - 1;
+
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * array.length);
+
+        let temp = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temp;
+
+        currentIndex -= 1;
+    }
+}
+```
