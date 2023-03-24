@@ -993,6 +993,76 @@ let multipliedNumbers = numbers.map(multiplyByTwo);
 console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
 ```
 
+## Nested functions
+
+Nested functions are functions inside other functions. Outer functions have access to inner functions. Inner functions are "hidden" from the outside. They are often used in closures [You'll learn more about it in the future].
+
+Let's suppose we have three functions: `login()`, `displayUserName()` and `displayUserInbox()`. When the user calls `login()`, this function should call the other two in order to display the user name and the inbox messages: 
+
+```
+let userName = "Noah";
+let userInbox = 0;
+
+function login() {
+    displayUserName();
+    displayUserInbox();
+}
+
+function displayUserName() {
+    console.log(userName);
+}
+
+function displayUserInbox() {
+    console.log(userInbox);
+}
+
+login();
+displayUserName();
+displayUserInbox();
+```
+
+Now, when the user logs in, it will show their name and their inbox. The problem is that you can still call both `displayUserName()` and `displayUserInbox()` without having to log in first. To solve that, let's declare these two functions inside the `login()` function:
+
+```
+let userName = "Noah";
+let userInbox = 0;
+
+function login() {
+    displayUserName();
+    displayUserInbox();
+
+    function displayUserName() {
+        console.log(userName);
+    }
+    
+    function displayUserInbox() {
+        console.log(userInbox);
+    }
+}
+
+login(); // This will work perfectly
+displayUserName(); // This will raise an error
+displayUserInbox(); // This will raise an error
+```
+
+Now these two functions will only be called when the `login()` function is called. They can't be called from the outside because they're in the inner scope of `login()`. That's how you can hide data using nested functions. Keep in mind that nested functions still have access to outside data, but the outside cannot access the nested functions, except for the function in which the nested function was declared.
+
+Example:
+
+```
+let userName = "Noah";
+function greet() {
+    function sayHi() {
+        console.log(`Hi, ${userName}!`);
+    }
+
+    sayHi();
+}
+
+greet(); // This is possible
+sayHi(); // This is NOT possible
+```
+
 ## Math random
 
 The function Math.random(); returns a floating point number between 0 and 1.
