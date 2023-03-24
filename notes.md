@@ -1873,3 +1873,62 @@ function shuffle(array) {
     }
 }
 ```
+
+## Maps
+
+A maps is an object that holds key-value pairs of any data type. They are very similar to objects, but the main differences are that it can iterate its elements i ninsertion order, so a `for ...of` loop will return an array of [key, value] for each iteration, and keys can be of any data type, while in objects keys can only be strings.
+
+This is how you create a new map:
+
+```
+const store = new Map([
+    ["t-shirt", 20],
+    ["jeans", 30],
+    ["socks", 10],
+    ["underwear", 50]
+]);
+```
+
+You can iterate over a map with a `forEach` loop:
+
+```
+store.forEach((v, k) => {
+    customPrint(`Key: ${k}, value: $${v}`);
+});
+```
+
+### Get
+
+You can use the `get(key)` method to get the value from a specific key in a map:
+
+```
+let shoppingCart = 0
+shoppingCart += store.get("t-shirt");
+shoppingCart += store.get("underwear");
+customPrint(`Total in your cart: $${shoppingCart}.`);
+```
+
+### Set
+
+Using the `set()` method you can add a new pair into your map.
+
+`store.set("hat", 40);`
+
+### Delete
+
+You can delete a pair using the `delete()` method.
+
+`store.delete("hat");`
+
+### Has
+
+We can check if we have a key in our map. It returns a boolean value:
+
+`customPrint(store.has("hat"));`
+
+### Size:
+
+This is a property.
+
+`console.log(store.size);`
+
