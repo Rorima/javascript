@@ -1063,6 +1063,63 @@ greet(); // This is possible
 sayHi(); // This is NOT possible
 ```
 
+## Closures
+
+A closure is a function with preserved and private data. It gives you access to an outer function's scope, from an inner function.
+
+Consider the following code:
+
+```
+document.getElementById("button1").onclick = alertUser;
+
+let userName = "Job";
+let userInbox = 1;
+
+function alertUser() {
+    alert(`Hello, ${userName}! You have ${userInbox} new messages!`);
+    userInbox = 0;
+}
+```
+
+Anyone has access to these two variables, and anyone can change them. Let's enclose these variables and the fuction so that we can prevent anybody else from updating the variables:
+
+```
+document.getElementById("button1").onclick = alertUser;
+
+function login() {
+    let userName = "Job";
+    let userInbox = 1;
+
+    function alertUser() {
+        alert(`Hello, ${userName}! You have ${userInbox} new messages!`);
+        userInbox = 0;
+    }
+}
+```
+
+The current code does nothing because the `alertUser()` function is not called or returned. So let's return it:
+
+```
+document.getElementById("button1").onclick = alertUser;
+
+function login() {
+    let userName = "Job";
+    let userInbox = 1;
+
+    function alertUser() {
+        alert(`Hello, ${userName}! You have ${userInbox} new messages!`);
+        userInbox = 0;
+    }
+    return alertUser;
+}
+```
+
+Now we have to change the function that the button will call, giving the fact that it can't call `alertUser()` anymore, because it is enclosed:
+
+`document.getElementById("button1").onclick = login();`
+
+In this case you'll need the parenthesis to invoke the inner function, otherwise it will not work.
+
 ## Math random
 
 The function Math.random(); returns a floating point number between 0 and 1.
