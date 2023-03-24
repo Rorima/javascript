@@ -1876,7 +1876,7 @@ function shuffle(array) {
 
 ## Maps
 
-A maps is an object that holds key-value pairs of any data type. They are very similar to objects, but the main differences are that it can iterate its elements i ninsertion order, so a `for ...of` loop will return an array of [key, value] for each iteration, and keys can be of any data type, while in objects keys can only be strings.
+A map is an object that holds key-value pairs of any data type. They are very similar to objects, but the main differences are that it can iterate over its elements in insertion order, so a `for ...of` loop will return an array of [key, value] for each iteration, and keys can be of any data type, while in objects keys can only be strings.
 
 This is how you create a new map:
 
@@ -1897,9 +1897,17 @@ store.forEach((v, k) => {
 });
 ```
 
+You can also iterate with a `for of` method:
+
+```
+for (const [key, value] of store) {
+    console.log(key, value);
+}
+```
+
 ### Get
 
-You can use the `get(key)` method to get the value from a specific key in a map:
+You can use the `get()` method to get the value from a specific key in a map:
 
 ```
 let shoppingCart = 0
@@ -1931,4 +1939,3 @@ We can check if we have a key in our map. It returns a boolean value:
 This is a property.
 
 `console.log(store.size);`
-
