@@ -26,18 +26,18 @@ player1.pause();
 player1.exit();
 
 class Zombie {
-    name;
+    userName;
 
     walk() {
-        console.log(`${this.name} is walking.`);
+        console.log(`${this.userName} is walking.`);
     }
 
     stopWalking() {
-        console.log(`${this.name} stopped walking.`);
+        console.log(`${this.userName} stopped walking.`);
     }
 
     infect() {
-        console.log(`${this.name} infected a person!`);
+        console.log(`${this.userName} infected a person!`);
     }
 }
 
@@ -45,9 +45,9 @@ const z1 = new Zombie();
 const z2 = new Zombie();
 const z3 = new Zombie();
 
-z1.name = "Gerald";
-z2.name = "Cloe";
-z3.name = "Stacy";
+z1.userName = "Gerald";
+z2.userName = "Cloe";
+z3.userName = "Stacy";
 
 z1.infect();
 z2.walk();

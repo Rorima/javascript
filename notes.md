@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=Q6M4J4JNBxc&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=51&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=_wO3MHR3pmM&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=55&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -2016,3 +2016,76 @@ z2.walk();
 z2.stopWalking();
 z3.infect();
 ```
+
+### Constructors
+
+A constructor is a special method of a class. Its job is to accept arguments and assign properties, or anythign else you'ld like to do when you instantiate an object.
+
+This is how you create an constructor:
+
+```
+class Student {
+    constructor(){
+        
+    }
+}
+```
+
+The constructor can receive several parameters, which will be given as arguments when the class is instantiated. Let's add a couple of parameters for our Student class:
+
+```
+class Student {
+    constructor(name, age, gpa){
+
+    }
+}
+```
+
+Now let's assign these parameters to properties for our class:
+
+```
+class Student {
+    constructor(name, age, gpa){
+        this.name = name;
+        this.age = age;
+        this.gpa = gpa;
+    }
+}
+```
+
+The variables `this.name`, `this.age` and `this.gpa` are being created and will be accessable by the whole class, if you use the `this` keyword.
+
+Let's create a method:
+
+```
+class Student {
+    constructor(name, age, gpa){
+        this.name = name;
+        this.age = age;
+        this.gpa = gpa;
+    }
+
+    study() {
+        console.log(`${this.name} is studying.`);
+    }
+}
+```
+
+Now let's instantiate this class by creating some students:
+
+```
+const student1 = new Student("Spongebob", 30, 3.2);
+const student2 = new Student("Patrick", 35, 1.5);
+
+console.log(student1.name);
+console.log(student1.age);
+console.log(student1.gpa);
+student1.study();
+
+console.log(student2.name);
+console.log(student2.age);
+console.log(student2.gpa);
+student2.study();
+```
+
+Observe the arguments, which will be taken by the constructor automatically. We can reuse this class to create as many students as we need.
