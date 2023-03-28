@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=IHrqpZI1_yc&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=45&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=Q6M4J4JNBxc&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=51&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -223,9 +223,22 @@ JS objects are containers for **named values** called properties.
 
 ### Object Methods
 
-Objects can also have methods. Methods are actions that can be performed on objects. Methods are stoered in properties as **function definitions**. You'll learn more about functions in the future. If you don't understand this part very well, do not be afraid. When you learn functions, just make sure to come back to understand thoroughly how object methods work.
+Objects can also have methods. Methods are actions that can be performed on objects. Methods are stored in properties as **function definitions**. You'll learn more about functions in the future. If you don't understand this part very well, do not be afraid. When you learn functions, just make sure to come back to understand thoroughly how object methods work.
 
 A method is a function stored as a property:
+
+```
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    id : 5566,
+    greet: function() {
+        return "I am a person!";
+    }
+};
+```
+
+You can also refer to a property inside the object using the `this` keyword:
 
 ```
 const person = {
@@ -238,7 +251,7 @@ const person = {
 };
 ```
 
-The `this` keyword refers to the outer scope variables, the variables that were declared inside the person object. If you don't use the `this` keyword, you cannot use these variables.
+The `this` keyword refers to the outer scope variables, the variables that were declared inside the person object. If you don't use the `this` keyword, you cannot use the variables from the object. The program will take variables from inside the function if they exist, and if they don't, the program will throw an error. So whenever you want to access the variables from the object itself, use `this` before the name of the variable.
 
 This is how you access a method:
 
@@ -1939,3 +1952,67 @@ We can check if we have a key in our map. It returns a boolean value:
 This is a property.
 
 `console.log(store.size);`
+
+## Classes
+
+A class is a blueprint for creating objects. Within a class we can define what properties and methods they have. They tipically contain a constructor to assign a unique property. Classes seem a bit like objects. You declare properties in the same way you do in objects, and the methods don't need the `function` keyword.
+
+This is how you create a class:
+
+```
+class Player {
+    score = 0;
+
+    pause() {
+        console.log("You paused the game.");
+    }
+
+    exit() {
+        console.log("You exited the game.");
+    }
+}
+```
+
+In order to use a class, you need to instantiate it. To do that, simply create a variable and assign your class to it using the `new` keyword. Then, through that variable you're going to have access to the methods and properties. You can create as many instances as you want.
+
+```
+const player1 = new Player(); // instantiating a class
+const player2 = new Player(); // instantiating another class
+console.log(player1.score); // accessing a property
+player1.score += 1; // modifying a property
+player1.pause(); // accessing a method
+player2.pause(); // accessing a method from another instance
+```
+
+Another class example using the `this` keyword, just like in objects:
+
+```
+class Zombie {
+    name; // There will be a different name for each instance
+
+    walk() {
+        console.log(`${this.name} is walking.`);
+    }
+
+    stopWalking() {
+        console.log(`${this.name} stopped walking.`);
+    }
+
+    infect() {
+        console.log(`${this.name} infected a person!`);
+    }
+}
+
+const z1 = new Zombie();
+const z2 = new Zombie();
+const z3 = new Zombie();
+
+z1.name = "Gerald";
+z2.name = "Cloe";
+z3.name = "Stacy";
+
+z1.infect();
+z2.walk();
+z2.stopWalking();
+z3.infect();
+```
