@@ -2182,6 +2182,8 @@ console.log(Car.numberOfCars);
 
 #### Static methods
 
+One place we can see static methods are in the `Math` class. For example, the `Math.round()` method, which is a static method, and we don't need to create a `Math` object.
+
 ```
 class Car {
 
@@ -2214,3 +2216,145 @@ const car3 = new Car("BMW");
 Car.startRace();
 ```
 
+### Inheritance
+
+Inheritance is when a child class can inherit all the methods and properties from another class. Let's suppose we need three classes: `Rabbit`, `Fish` and `Hawk`. Each of them will have their own particular and common methods and characteristics.
+
+Consider the following code:
+
+```
+var values = "";
+function customPrint(value) {
+    values = values + "<br>" + value;
+    document.getElementById("demo").innerHTML = values; 
+}
+
+class Rabbit {
+    alive = true;
+    name = "Rabbit";
+
+    eat() {
+        customPrint(`This ${this.name} is eating.`);
+    }
+
+    sleep() {
+        customPrint(`This ${this.name} is sleeping`);
+    }
+
+    run() {
+        customPrint(`This ${this.name} is running`);
+    }
+}
+
+class Fish {
+    alive = true;
+    name = "Fish";
+
+    eat() {
+        customPrint(`This ${this.name} is eating.`);
+    }
+
+    sleep() {
+        customPrint(`This ${this.name} is sleeping`);
+    }
+
+    swim() {
+        customPrint(`This ${this.name} is swimming`);
+    }
+}
+
+class Hawk {
+    alive = true;
+    name = "Hawk";
+
+    eat() {
+        customPrint(`This ${this.name} is eating.`);
+    }
+
+    sleep() {
+        customPrint(`This ${this.name} is sleeping`);
+    }
+
+    fly() {
+        customPrint(`This ${this.name} is flying`);
+    }
+}
+```
+
+Now, in programming we don't like to repeat code, and as you can see, all of those classes have the same structure, and identical properties and methods, except for one method. To eliminate the need for us to repeat some of this code, we can simply create a class, and each of those individual animal classes can inherit some properties and methods from it. All of these classes have in common an `alive` and `name` variables, and the methods `eat()` and `sleep()`. So let's create a separate class that have these properties and methods, and each animal class will inherit from that class.
+
+```
+var values = "";
+function customPrint(value) {
+    values = values + "<br>" + value;
+    document.getElementById("demo").innerHTML = values; 
+}
+
+class Animal {
+    name = "Animal";
+    alive = true;
+
+    eat() {
+        customPrint(`This ${this.name} is eating.`);
+    }
+
+    sleep() {
+        customPrint(`This ${this.name} is sleeping`);
+    }
+}
+
+class Rabbit extends Animal {
+    
+    name = "Rabbit";
+
+    run() {
+        customPrint(`This ${this.name} is running`);
+    }
+}
+
+class Fish extends Animal {
+
+    name = "Fish";
+
+    swim() {
+        customPrint(`This ${this.name} is swimming`);
+    }
+}
+
+class Hawk extends Animal {
+    
+    name = "Hawk";
+    
+    fly() {
+        customPrint(`This ${this.name} is flying`);
+    }
+}
+```
+
+The class `Animal` is a parent class. `Rabbit`, `Fish` and `Hawk` are children classes. The keyword `extends` makes a class inherit the properties and methods from another class. Keep inside the children class only the methods and properties that are unique to them. Whatever is shared among the classes, add into the parent class.
+
+You can access all methods and properties of a parent class from a child class because it inherited everything from the parent class.
+
+```
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+customPrint(rabbit.alive);
+rabbit.eat(); // Inherited method
+rabbit.sleep(); // Inherited method
+rabbit.run(); // Unique method
+customPrint(" ");
+
+customPrint(fish.alive);
+fish.eat(); // Inherited method
+fish.sleep(); // Inherited method
+fish.swim(); // Unique method
+customPrint(" ");
+
+customPrint(hawk.alive);
+hawk.eat(); // Inherited method
+hawk.sleep(); // Inherited method
+hawk.fly(); // Unique method
+customPrint(" ");
+```
