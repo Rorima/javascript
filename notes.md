@@ -1976,15 +1976,15 @@ class Player {
 In order to use a class, you need to instantiate it. To do that, simply create a variable and assign your class to it using the `new` keyword. Then, through that variable you're going to have access to the methods and properties. You can create as many instances as you want.
 
 ```
-const player1 = new Player(); // instantiating a class
-const player2 = new Player(); // instantiating another class
+const player1 = new Player(); // instantiating an object
+const player2 = new Player(); // instantiating another object
 console.log(player1.score); // accessing a property
 player1.score += 1; // modifying a property
 player1.pause(); // accessing a method
-player2.pause(); // accessing a method from another instance
+player2.pause(); // accessing a method of another instance
 ```
 
-Another class example using the `this` keyword, just like in objects:
+Another class example, but using the `this` keyword, just like in objects:
 
 ```
 class Zombie {
@@ -2019,9 +2019,9 @@ z3.infect();
 
 ### Constructors
 
-A constructor is a special method of a class. Its job is to accept arguments and assign properties, or anythign else you'ld like to do when you instantiate an object.
+A constructor is a special method of a class. Its job is to accept arguments and assign properties, or anything else you would like to do when you instantiate an object.
 
-This is how you create an constructor:
+To create a constructor, use the keyword `constructor`:
 
 ```
 class Student {
@@ -2053,7 +2053,7 @@ class Student {
 }
 ```
 
-The variables `this.name`, `this.age` and `this.gpa` are being created and will be accessable by the whole class, if you use the `this` keyword.
+The variables `this.name`, `this.age` and `this.gpa` are being created and will be accessable by the whole class if you use the `this` keyword.
 
 Let's create a method:
 
@@ -2089,3 +2089,128 @@ student2.study();
 ```
 
 Observe the arguments, which will be taken by the constructor automatically. We can reuse this class to create as many students as we need.
+
+### Static keyword
+
+A member that's static, whether is a property or a method, belongs to that class, and not to any objects created from that class. Static properties are good for caches and fixed configurations. Static methods are useful as utility functions.
+
+#### Static properties
+
+Consider the following code:
+
+```
+class Car {
+    constructor(model) {
+        this.model = model;
+    }
+}
+
+const car1 = new Car("Mustang");
+const car2 = new Car("Corvette");
+const car3 = new Car("BMW");
+```
+
+Now let's suppose we want to count how many instances of the `Car` class we have.
+
+```
+class Car {
+
+    numberOfCars = 0;
+
+    constructor(model) {
+        this.model = model;
+        this.numberOfCars += 1;
+    }
+}
+
+const car1 = new Car("Mustang");
+const car2 = new Car("Corvette");
+const car3 = new Car("BMW");
+
+console.log(car1.numberOfCars);
+console.log(car2.numberOfCars);
+console.log(car3.numberOfCars);
+```
+
+The result will be 1 for all cars. That's because all instances use this attribute uniquely. What we want here is one attribute shared among all instances. In order to do that, we use the `static` keyword, and we substitute the `this` keyword for the name of the class when we are incrementing it:
+
+```
+class Car {
+
+    static numberOfCars = 0;
+
+    constructor(model) {
+        this.model = model;
+        Car.numberOfCars += 1;
+    }
+}
+
+const car1 = new Car("Mustang");
+const car2 = new Car("Corvette");
+const car3 = new Car("BMW");
+
+console.log(car1.numberOfCars);
+console.log(car2.numberOfCars);
+console.log(car3.numberOfCars);
+```
+
+There will be a problem if we try to access the `Car.numberOfCars` property from an instance, because no instance has this property, only the class. In order to access it, use the name of the class:
+
+```
+class Car {
+
+    static numberOfCars = 0;
+
+    constructor(model) {
+        this.model = model;
+        Car.numberOfCars += 1;
+    }
+}
+
+// 1 car
+const car1 = new Car("Mustang");
+console.log(Car.numberOfCars);
+
+// 2 cars
+const car2 = new Car("Corvette");
+console.log(Car.numberOfCars);
+
+// 3 cars
+const car3 = new Car("BMW");
+console.log(Car.numberOfCars);
+```
+
+#### Static methods
+
+```
+class Car {
+
+    static numberOfCars = 0;
+
+    constructor(model) {
+        this.model = model;
+        Car.numberOfCars += 1;
+        customPrint(`Total number of cars: ${Car.numberOfCars}`)
+    }
+
+    static startRace() {
+        customPrint("3... 2... 1... GO!!!")
+    }
+}
+
+var values = "";
+function customPrint(value) {
+    values = values + "<br>" + value;
+    document.getElementById("demo").innerHTML = values; 
+}
+
+// 1 car
+const car1 = new Car("Mustang");
+// 2 cars
+const car2 = new Car("Corvette");
+// 3 cars
+const car3 = new Car("BMW");
+
+Car.startRace();
+```
+
