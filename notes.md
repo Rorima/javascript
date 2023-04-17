@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=_wO3MHR3pmM&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=55&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=fvKyf3_8_Vk&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=58&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -2090,7 +2090,7 @@ student2.study();
 
 Observe the arguments, which will be taken by the constructor automatically. We can reuse this class to create as many students as we need.
 
-### Static keyword
+### The static keyword
 
 A member that's static, whether is a property or a method, belongs to that class, and not to any objects created from that class. Static properties are good for caches and fixed configurations. Static methods are useful as utility functions.
 
@@ -2357,4 +2357,51 @@ hawk.eat(); // Inherited method
 hawk.sleep(); // Inherited method
 hawk.fly(); // Unique method
 customPrint(" ");
+```
+
+### The super keyword
+
+The `super` keyword, when using inheritance, refers to the parent class. It's commonly used to invoke the constructor of a parent class. If you have a child class, and that child class has a constructor, you can invoke the constructor from the parent class using the `super` keyword, because this keyword calls the method from the parent class that has the same name in the child class. If you call `super()` inside the constructor of the child class, it will call the constructor of the parent class. See the code below:
+
+```
+var values = "";
+function customPrint(value) {
+    values = values + "<br>" + value;
+    document.getElementById("demo").innerHTML = values; 
+}
+
+class Animal {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+class Rabbit extends Animal {
+    constructor(name, age, runSpeed) {
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
+}
+
+class Fish extends Animal {
+    constructor(name, age, swimSpeed) {
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+class Hawk extends Animal {
+    constructor(name, age, flySpeed) {
+        super(name, age);
+        this.flySpeed = flySpeed;
+    }
+}
+
+const rabbit = new Rabbit("rabbit", 1, 56);
+const fish = new Fish("fish", 2, 48);
+const hawk = new Hawk("hawk", 3, 160);
+
+// This wouldn't work if super weren't called
+customPrint(rabbit.name);
 ```
