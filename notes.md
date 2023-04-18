@@ -2405,3 +2405,117 @@ const hawk = new Hawk("hawk", 3, 160);
 // This wouldn't work if super weren't called
 customPrint(rabbit.name);
 ```
+
+### Getters and setters
+
+#### getter
+
+To create a getter you have to use the `get` keyword. It's job is to bind an object property to a function when that property is accessed. It appears to be no different from accesing the property directly.
+
+Consider the following code:
+
+```
+var values = "";
+function customPrint(value) {
+    values = values + "<br>" + value;
+    document.getElementById("demo").innerHTML = values; 
+}
+
+class Car {
+    constructor(power) {
+        this.power = power;
+    }
+}
+
+let car = new Car(400);
+customPrint(`You car has ${car.power} horse power.`)
+```
+
+Instead of accessing the property itself, we can create a getter method that will access it. The method and the property shouldn't have the same name, so when a property has getters and setters, it must have an underscore before its name to tell it's a private property.
+
+```
+class Car {
+    constructor(power) {
+        this._power = power;
+    }
+
+    get power() {
+        return this._power;
+    }
+}
+
+let car = new Car(400);
+customPrint(`You car has ${car.power} horse power.`)
+```
+
+By associating a protected property with only a getter, this protected property is read only, and not writable. If you try to reassign value to it, it will not work. Look at the following code:
+
+`car.power = 1000000;`
+
+This won't work. However, this will:
+
+`car._power = 1000000;`
+
+But developpers know that if you see underscore before a property name, that means it's protected and you shouldn't mess with it at all. If you want to assign value to a property, you're going have to use a setter, which you'll learn about in just a bit. Another thing we can do with getters is add some more logic into them instead of just returning the property:
+
+Just the getter method:
+
+```
+get power() {
+    // Returning a template literal
+    return `${this._power}hp`;
+}
+```
+
+#### setters
+
+Setters bind an object property to a function when that property is assigned a value. Let's create another private property called `_gas` and let's make a getter for it:
+
+```
+class Car {
+    constructor(power) {
+        this._gas = 25;
+        this._power = power;
+    }
+
+    get gas() {
+        // 50 liters gas tank
+        return `${this._gas}L (${this._gas / 50 * 100})%`;
+    }
+
+    get power() {
+        return `${this._power}hp`;
+    }
+}
+
+let car = new Car(400);
+customPrint(`You car has ${car.power}.`)
+customPrint(`You have ${car.gas} of gas.`)
+```
+
+Now let's suppose we want to assign a value to it. In order to do this, we will need a setter, and this type of method is declared with the word `set`.
+
+Just the setter method:
+
+```
+set gas(value) {
+    this._gas = value;
+}
+```
+
+We can also add some more logic. Let's limit the max amount to be 50 liters, and the min to be 0 liters.
+
+```
+set gas(value) {
+    if (value > 50) {
+        value = 50;
+    } else if (value < 0) {
+        value = 0;
+    }
+    this._gas = value;
+}
+```
+
+Now we can set the gas:
+
+`car.gas = 30;`
