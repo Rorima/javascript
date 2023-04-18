@@ -2519,3 +2519,47 @@ set gas(value) {
 Now we can set the gas:
 
 `car.gas = 30;`
+
+### Objects as arguments
+
+You can pass objects as arguments to a function. Let's create `Car` class with three attributes: `model`, `year` and `color`. And then, lets make a couple of instances of this class:
+
+```
+class Car {
+    constructor(model, year, color) {
+        this.model = model;
+        this.year = year;
+        this.color = color;
+    }
+}
+
+const car1 = new Car("Mustang", 2023, "red");
+const car2 = new Car("Corvette", 2024, "blue");
+const car3 = new Car("Lambo", 2022, "yellow");
+```
+
+Now let's create a function that will display the attributes of each of these instances:
+
+```
+function displayInfo(car) {
+    customPrint(`Model: ${car.model},`);
+    customPrint(`Year: ${car.year},`);
+    customPrint(`Color: ${car.color}.`);
+}
+
+displayInfo(car1);
+customPrint(" ");
+displayInfo(car2);
+customPrint(" ");
+displayInfo(car3);
+```
+
+Now let's create a function to change the color of a car:
+
+```
+function changeColor(car, color) {
+    car.color = color;
+}
+
+changeColor(car1, "purple");
+```
