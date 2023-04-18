@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=fvKyf3_8_Vk&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=58&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=yHdrwSLUPHg&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=62&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -2562,4 +2562,31 @@ function changeColor(car, color) {
 }
 
 changeColor(car1, "purple");
+```
+
+### Anonymous objects
+
+Anonymous objects are objects without a name. They require less syntax and there's no need for unique names. The down side is that we don't have direct access to one of these objects.
+
+Let's create an array of cards. Each card will be an object, which we will create with a `Card` class.
+
+```
+class Card {
+    constructor(value, suit) {
+        this.value = value;
+        this.suit = suit;
+    }
+}
+```
+
+Now let's create an array, and each index will have an object created by our `Card` class:
+
+```
+let cards = [new Card("A", "Hearts"), new Card("A", "Spades"), new Card("A", "Diamonds"), new Card("A", "Clubs")];
+```
+
+Now we can access these values through the index of our array:
+
+```
+cards.forEach(card => customPrint(`Value: ${card.value} <br>suit: ${card.suit}<br>`));
 ```
