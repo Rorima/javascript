@@ -2590,3 +2590,92 @@ Now we can access these values through the index of our array:
 ```
 cards.forEach(card => customPrint(`Value: ${card.value} <br>suit: ${card.suit}<br>`));
 ```
+
+## Handling errors
+
+An error is an object description of something that went wrong. It can happen because the program couldn't open a file, it lost connection, the user typed something incorrect in the input or it could be a TypeError. If an error happens when your program is running, it can cause your program to stop.
+
+One way to handle these erros is to surround any dangerous code with a `try` block. A code that could cause and error is considered dangerous. Accepting user input is almost always dangerous.
+
+If you have a try block, you have to follow it with a `catch` block. So if something goes wrong, the program is going to do something else.
+
+```
+try {
+    // its written 'lag' instead of 'log', so it will throw an error
+    console.lag("testing");
+} catch (error) {
+    // This will just display the error instead of breaking the program
+    console.log(error);
+}
+```
+
+### User defined errors
+
+Sometimes in your program something will go wrong, but it won't generate an error because you used those try-except blocks. Now, you could still have some problems even if you handle the errors. See the following code:
+
+```
+try {
+    let x = window.prompt("Enter a number:");
+    x = Number(x);
+    console.log(`${x} is your number.`);
+} catch (error) {
+    console.log(error)
+}
+```
+
+In this code we receive a number from the user. The `window.prompt()` always returns a string, so we have to convert that string into a number using the `Number()` function. But what if the user types "pizza" instead of a number? Then the value of `x` will be `NaN` after conversion, which means Not a Number, and if you need to use this value in the future, you're going to have some trouble. 
+
+So in this case we want to throw an error on purpose so that our `catch` block will catch it and treat it. In order to throw an error, use the `throw` keyword followed by the name of the error (or message) that you can define yourself as a string:
+
+```
+try {
+    let x = window.prompt("Enter a number:");
+    x = Number(x);
+    if (isNaN(x)) {
+        throw 'This is not a number!' // Defining a custom error
+    }
+    console.log(`${x} is your number.`);
+} catch (error) {
+    console.log(error)
+}
+```
+
+Let's also do the treatment in case the user enters an empty string:
+
+```
+try {
+    let x = window.prompt("Enter a number:");
+    x = Number(x);
+    if (isNaN(x)) {
+        throw 'This is not a number!'
+    }
+    if(x == "") {
+        throw 'That was empty!'
+    }
+    console.log(`${x} is your number.`);
+} catch (error) {
+    console.log(error)
+}
+```
+
+### Finally
+
+You can also add another block called `finally`. It will always execute, no matter if your code is successfull or unsuccessfull. The `finally` block is usefull for any sort of clean up. Let's suppose you open a file using a try-catch block. Whether there's and error or not, you still want to close that file, so that's one use for the `finally` block. Because we won't deal with any files now, let's just display a message:
+
+```
+try {
+    let x = window.prompt("Enter a number:");
+    x = Number(x);
+    if (isNaN(x)) {
+        throw 'This is not a number!'
+    }
+    if(x == "") {
+        throw 'That was empty!'
+    }
+    console.log(`${x} is your number.`);
+} catch (error) {
+    console.log(error)
+} finally {
+    console.log("Final block.");
+}
+```
