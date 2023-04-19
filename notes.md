@@ -1344,7 +1344,10 @@ document.getElementById("myButton2").onclick = function() {
     const p = document.getElementById("payBtn").checked;
     const radioButtons = [v, m, p];
     const cardNames = ["Visa", "Master Card", "PayPal"];
-    ## Arrow functions
+}
+```
+
+## Arrow functions
 
 Arrow functions are a feature of ES6 and their behavior are generally the same of a function. They are like lambda functions in Python. These are anonymous functions with a special syntax.
 
@@ -1388,21 +1391,19 @@ function multiplyByTwo(number){
 
 let multipliedNumbers = numbers.map(multiplyByTwo);
 
-console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
+console.log(multipliedNumbers); // prints out: 6, 10, 16, 18, 4
 
 // Using ES6 arrow functions
 const multiplyByTwo = number => number * 2;
 
 let multipliedNumbers = numbers.map(multiplyByTwo);
 
-console.log(multipliedNumbers);              // prints out: 6, 10, 16, 18, 4
-```
+console.log(multipliedNumbers); // prints out: 6, 10, 16, 18, 4
 
-    for (let index = 0; index < radioButtons.length; index++) {
-        if (radioButtons[index]) {
-            customPrint("You're paying with " + cardNames[index] + ".");
-            break;
-        }
+for (let index = 0; index < radioButtons.length; index++) {
+    if (radioButtons[index]) {
+        customPrint("You're paying with " + cardNames[index] + ".");
+        break;
     }
 }
 ```
