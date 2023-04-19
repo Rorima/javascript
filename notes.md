@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=yHdrwSLUPHg&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=62&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=5X7Mx-Dla9Q&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=64&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -2679,3 +2679,80 @@ try {
     console.log("Final block.");
 }
 ```
+
+## setTimeout()
+
+This method invokes a function after a number of milliseconds. It's an asynchronous function, meaning that it doesn't pause the execution of your program.
+
+Let's spam some alert messages after a given amount of milliseconds:
+
+```
+setTimeout(firstMessage, 3000); // 3 secs
+setTimeout(secondMessage, 6000); // 6 secs
+setTimeout(thirdMessage, 9000); // 9 secs
+
+function firstMessage() {
+    alert(`Buy this course for $500!`);
+}
+
+function secondMessage() {
+    alert(`This is not a scam!`);
+}
+
+function thirdMessage() {
+    alert(`DO IT!`);
+}
+```
+
+If you need to pass arguments to a function, you can list them after the the milliseconds.
+
+```
+let item = 'cryptocurrency';
+let price = 399.99;
+
+let msg1 = setTimeout(firstMessage, 3000, item, price);
+let msg2 = setTimeout(secondMessage, 6000);
+let msg3 = setTimeout(thirdMessage, 9000);
+
+function firstMessage(item, price) {
+    alert(`Buy this ${item} for $${price}!`);
+}
+
+function secondMessage() {
+    alert(`This is not a scam!`);
+}
+
+function thirdMessage() {
+    alert(`DO IT!`);
+}
+```
+
+### Canceling
+
+If at any time you need to clear or cancel your `setTimeout()` function, you can use the `clearTimeout()` method. The `setTimeout()` returns an ID that will be used to cancel it.
+
+```
+let msg1 = setTimeout(firstMessage, 3000);
+let msg2 = setTimeout(secondMessage, 6000);
+let msg3 = setTimeout(thirdMessage, 9000);
+
+function firstMessage() {
+    alert(`Buy this course for $500!`);
+}
+
+function secondMessage() {
+    alert(`This is not a scam!`);
+}
+
+function thirdMessage() {
+    alert(`DO IT!`);
+}
+
+setTimeout(() => {
+    clearTimeout(msg1);
+    clearTimeout(msg2);
+    clearTimeout(msg3);
+}, 2000);
+```
+
+In the last `setTimeout()` function I cleared the previous `setTimeout()` functions and they will not execute.
