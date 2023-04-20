@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=5X7Mx-Dla9Q&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=64&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=ZJ5zvvadFLs&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=65&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -2757,3 +2757,23 @@ setTimeout(() => {
 ```
 
 In the last `setTimeout()` function I cleared the previous `setTimeout()` functions and they will not execute.
+
+## setInterval()
+
+`setInterval()` works in the same way as `setTimeout()`. The difference is that it calls a function repeatedly after a number of milliseconds. Let's create a counter:
+
+```
+let c = 0;
+let max = window.prompt("How many seconds?")
+max = Number(max);
+
+const counter = setInterval(() => {
+    console.log("Seconds passed since execution: " + c);
+    c += 1;
+    if (c >= max) {
+        clearInterval(counter);
+    }
+}, 1000);
+```
+
+It also returns an id, and you can cancel it using the `clearInterval()` function passing the id as the argument, as you can see in the code above.
