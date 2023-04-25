@@ -2777,3 +2777,89 @@ const counter = setInterval(() => {
 ```
 
 It also returns an id, and you can cancel it using the `clearInterval()` function passing the id as the argument, as you can see in the code above.
+
+## Date Objects
+
+Date objects are used to work with dates and times. This is how you create a date object:
+
+`let date = new Date();`
+
+And this is how you make this date more readable:
+
+`date = date.toLocaleString();`
+
+Within the date constructor we can pass some arguments. If you pass `0`, then it will return the epoch, which is when time began for this programming language. It doesn't mean JavaScript was created at that time. It just means that that's when JS thinks time began.
+
+You can also increase that value and pass it in seconds. the `Date()` will return the day and hour (past the seconds you passed) after the epoch.
+
+For example:
+
+`let date = new Date(100);`
+
+`date` will store the time 100 seconds after the epoch.
+
+`let date = new Date(9999999);`
+
+`date` will store the time 9999999 seconds after the epoch.
+
+You can also pass several arguments so that `Date()` will return a date object. This is the order: year, month (0 means January, 1 means Februrary, etc.), day, hour, minute, second, millisecond.
+
+`let date = new Date(2023, 0, 1, 2, 3, 4, 5);`
+
+### Getting specific items from a date
+
+```
+year = date.getFullYear();
+month = date.getMonth(); // January is 0, February is 1, etc.
+dayOfMonth = date.getDate();
+dayOfWeek = date.getDay(); // Sunday is 0, Monday is 1, etc.
+hours = date.getHours(); // between 0 and 23
+minutes = date.getMinutes();
+seconds = date.getSeconds();
+milliseconds = date.getMilliseconds();
+```
+
+### Setting specific items from a date
+
+You can also set any one of the values above using the word `set` instead of `get`:
+
+`date.setFullYear(2025); // etc.`
+
+### Customized formatting
+
+You can format dates yourself through a function:
+
+```
+function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let dayOfMonth = date.getDate();
+
+    // Month is set to + 1 because 0 is January
+    return `${dayOfMonth}/${month + 1}/${year}`;
+}
+```
+
+### Format hours
+
+In case you want to display hours in standard time instead of military time, here's the code:
+
+```
+function formatTime(date) {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    let amOrPm = hours >= 12 ? "pm" : "am";
+
+    /* 
+    Modulus finds the remainder of any division.
+    If the current time is 12, then the modulus would give 0, that's 
+    why we're using the or (||), because it will return 12 instead of 0, 
+    if the current time is 12.
+    */
+    hours = (hours % 12) || 12;
+
+    return `${hours}:${minutes}:${seconds} ${amOrPm}`
+}
+```
+
