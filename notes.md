@@ -2884,3 +2884,25 @@ console.log("Start");
 setTimeout(() => console.log("This is asynchronous"), 5000);
 console.log("Finish");
 ```
+
+## `console.time()`
+
+You can time functions using this function. In order to do it, call the function and pass a name you want as an argument:
+
+`console.time("responseTime");`
+
+In order to stop the timer, use `console.timeEnd()` with the same name you passed as the start:
+
+`console.timeEnd("responseTime");`
+
+This is a program that will tell how many seconds it took for the user to click OK:
+
+```
+//start
+console.time("responseTime");
+
+alert("Click OK");
+
+// end
+console.timeEnd("responseTime");
+```
