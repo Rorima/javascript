@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=RW-qXwkCLBg&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=67&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=-6X32oZzK2E&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=68&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -2863,3 +2863,24 @@ function formatTime(date) {
 }
 ```
 
+## Synchronous and asynchronous
+
+Synchronous code is in an ordered sequence. They are step-by-step linear instructions. The rest of your program has to wait for a synchronous process. So the second step has to wait until the first step is finished, and the third has to wait until the second is finished, etc.
+
+Example:
+
+```
+console.log("Start");
+console.log("This step is synchronous");
+console.log("Finish");
+```
+
+An asynchronous code can be out of sequence. These may be tasks such as accessing a database, fecthing a file, or any task that takes time. Because they'll take a determined amount of time, you don't want the rest of your program to be waiting until a process finishes. You start now and finish some time later, and the rest of your program can carry on with whatever it was doing.
+
+Example:
+
+```
+console.log("Start");
+setTimeout(() => console.log("This is asynchronous"), 5000);
+console.log("Finish");
+```
