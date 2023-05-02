@@ -2907,47 +2907,112 @@ alert("Click OK");
 console.timeEnd("responseTime");
 ```
 
-## Promisses
+## Promises 
 
-Promisses are an object that encapsulate the result of an asynchronous operation. They let asynchronous methods return values like they were synchronous. It's a promise to return something in the future.
+The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 
-When we write a promise, we are going to return something. If we wanted to display the data from a server, we would use a promise for that, and the promise would only resolve if the server gave the date.
+When we write a promise, we are going to return something. If we wanted to display the data from a server, we would use a promise for that, and the promise would only resolve if the server gave the date, otherwise it would be rejected.
 
-In order to create promises, we are going to use the `Promise` class. Within the promise we can list a callback function, a function expression or an arrow function expression. We are going to use an arrow function expression. There are two arguments: `resolve` and `reject`. If the promise is successful, we are going to invoke `resolve`, `reject` otherwise. See the following code:
+### Synchronous structure
+
+The following code will represent in a SYNCHRONOUS manner (not asynchronous, so it's not a promise yet) how a promise works. Afterwards you're going to see a real promise.
 
 ```
-const promise = new Promise((resolve, reject) => {
-    let serverResponded = true;
+function successCallback(operation) {
+    console.log(`The following operation was successful: ${operation}.`);
+}
 
-    if (serverResponded) {
-        // You can choose the message that it's going to be returned
-        resolve("Server responded.");
+function errorCallback(error) {
+    console.log(`The following error occured: ${error}`);
+}
+
+function squareNumber(resolve, reject) {
+    const num = 3
+    let result = Math.pow(num, 2);
+
+    if (result === (Math.pow(num, 2))) {
+        resolve("Square exponentiation");
     } else {
-        reject("Server did not respond.");
+        reject("Not square exponentiation");
+    }
+}
+
+squareNumber(successCallback, errorCallback);
+```
+
+If the result is truly the number squared, then it's going to call `resolve` (which is `successCallback`), `reject` (which is `errorCallback`) otherwise.
+
+### A real promise
+
+Promises have a state. They're pending, then they are fulfilled or rejected. The result is what can be returned. The eventual state of a pending promise can either be fulfilled with a value or rejected with a reason (error). A promise is said to be settled if it is either fulfilled or rejected, but not pending.
+
+When you create a promise, your function is going to receive these two parameters: `resolve` and `reject`, but you won't need to build them as functions, because they are going to be passed automatically to your function. Let's reproduce the previous code, but using the `Promise` class now:
+
+```
+function squareNumber(resolve, reject) {
+    const num = 3
+    let result = Math.pow(num, 2);
+
+    if (result === (Math.pow(num, 2))) {
+        resolve("Square exponentiation");
+    } else {
+        reject("Not square exponentiation");
+    }
+}
+
+let myPromise = new Promise(squareNumber); // created a promise
+```
+
+In order to execute this promise, we will need to use the `then` method. The then method requires a function, just like the `Promise` class, and this function is going to receive a value, which will be the value returned by `resolved`.
+
+```
+function squareNumber(resolve, reject) {
+    const num = 2
+    let result = Math.pow(num, 2);
+
+    if (result === (Math.pow(num, 2))) {
+        resolve("Number squared successfully.");
+    } else {
+        reject("Number was not square successfully.");
+    }
+}
+
+function displayResult(message) {
+    console.log(message);
+}
+
+let myPromise = new Promise(squareNumber);
+myPromise.then(displayResult);
+```
+
+The `then` method only works when the promise is resolved. This means that if the promise is rejected an exception is going to be raised. In order to prevent that, we use the catch method, which works exacly like the `then` method. It accepts a function, and this function has to accept one value, which will be the value displayed.
+
+```
+// [...]
+
+let myPromise = new Promise(squareNumber);
+myPromise.then(displayResult).catch(displayResult);
+```
+
+### Promises with arrow functions
+
+You're going to see often promises being created with arrow function expressions instead of named functions. So this is the whole code using arrow functions only:
+
+```
+let myPromise = new Promise((resolve, reject) => {
+    const num = 2
+    let result = Math.pow(num, 3);
+
+    if (result === (Math.pow(num, 2))) {
+        resolve("Number squared successfully.");
+    } else {
+        reject("Number was not squared successfully.");
     }
 });
-```
 
-Promisses have a state. They're pending, then they are fulfilled or rejected. The result is what can be returned.
-
-There are two parts to a promise: the producing code, which is what we have just written, and the consuming code, which will be what will happen when the promise is fulfilled or rejected. In order to do that, we will need to use the `then()` method. In the constructor of the `then()` method you can pass a callback function, a function expression or an arrow function expression. This function is going to receive a value, which is the text inside the `resolve()` or `reject()`.
-
-
-```
-promise.then((value) => {
-    console.log(value);
-});
-```
-
-Now, if `serverResponded` is true, then the value will be displayed on the console. If it's not true, it's going to throw an exception. In order to deal with it, we are going to use the `catch()` method, which also receives callback function, a function expression or an arrow function expression.
-
-```
-promise.then((value) => {
+myPromise.then((value) => {
     console.log(value);
 }).catch((error) => {
     console.log(error);
 });
 ```
-
-You don't necessarily need to reject a promise. Just remove the `else` and it won't throw an exception if the value of `serverResponded` is false.
-
