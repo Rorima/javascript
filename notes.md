@@ -3016,3 +3016,64 @@ myPromise.then((value) => {
     console.log(error);
 });
 ```
+
+## Async
+
+Async: Makes a function return a Promise;
+Await: Makes a function wait for a Promise;
+
+We are only going to learn about async.
+
+First, let's create a promise:
+
+```
+const loadFile = new Promise((resolve, reject) => {
+
+    let fileLoaded = false;
+
+    if(fileLoaded) {
+        resolve("File loaded!");
+    } else {
+        reject("File not loaded");
+    }
+})
+
+loadFile.then(value => console.log(value))
+        .catch(error => console.log(error));
+```
+
+The `async` keyword can be used to create an async function. This function will return a promise. You no longer will need `resolve` and `reject`, so you're going to exchange it for `return` and `throw` statements.
+
+```
+async function loadFile() {
+    let fileLoaded = true;
+
+    if (fileLoaded) {
+        return "File loaded!";
+    } else {
+        throw "File not loaded!";
+    }
+}
+
+loadFile().then(value => console.log(value))
+        .catch(error => console.log(error));
+```
+
+Since `loadFile` is now a function, you'll have to call it in order to be able to call the `then` method on it.
+
+A similar way of writing this function, but without the `async` key word is to return `Promise.resolve()` and `Promise.reject()`:
+
+```
+function loadFile() {
+    let fileLoaded = true;
+
+    if (fileLoaded) {
+        return Promise.resolve("File loaded");
+    } else {
+        return Promise.reject("File not loaded");
+    }
+}
+
+loadFile().then(value => console.log(value))
+        .catch(error => console.log(error));
+```
