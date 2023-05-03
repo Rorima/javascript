@@ -3077,3 +3077,36 @@ function loadFile() {
 loadFile().then(value => console.log(value))
         .catch(error => console.log(error));
 ```
+
+## Await
+
+The `await` makes a function wait for a promise. You can only use `await` inside an `async function`. Let's create an `async function`, a promise, and then use the `await` keyword:
+
+```
+async function loadFile() {
+    const promise = new Promise((resolve, reject) => {
+        let fileLoaded = false;
+
+        if (fileLoaded) {
+            resolve("File loaded!");
+        } else {
+            reject("File not loaded!");
+        }
+    });
+
+    try {
+        console.log(await promise)
+    } catch (error) {
+        console.log(error);
+    }
+    
+}
+
+loadFile()
+```
+
+## ES6 modules
+
+The idea behind a module is that it is a file of reusable code. We can import sections of pre-written code to use whenever we need. It is great for any general utility values and functions. It also helps to make our code more reusable and maintanable. You can think of modules as chapters of a book.
+
+In order to work with modules, you're going to have to write `type="module"` into the `script` tag in your HTML file.
