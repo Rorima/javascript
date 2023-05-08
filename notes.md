@@ -3110,3 +3110,68 @@ loadFile()
 The idea behind a module is that it is a file of reusable code. We can import sections of pre-written code to use whenever we need. It is great for any general utility values and functions. It also helps to make our code more reusable and maintanable. You can think of modules as chapters of a book.
 
 In order to work with modules, you're going to have to write `type="module"` into the `script` tag in your HTML file.
+
+### Exporting
+
+Let's create some math utilities in a file called "math_util.js":
+
+```
+export const PI = 3.14159;
+
+export function getCircumference(radius) {
+    return 2 * PI * radius;
+}
+
+export function getArea(radius) {
+    return PI * radius * radius;
+}
+```
+
+In order to be able to export functions and variables, you'll have to add the `export` keyword before what you want to export.
+
+### Importing
+
+In order to import a file, you'll need to use the `import` keyword, and then list everything you're going to want to import between curly braces. After that, write the `from` keyword and then in between quotes, write the relative or the absolute path to the file you want to import:
+
+`import {PI, getArea, getCircumference} from "./math_util.js";`
+
+Now we can use the variables and functions as if they were in the same file.
+
+```
+import {PI, getArea, getCircumference} from "./math_util.js";
+
+console.log("PI: " + PI);
+
+let circumference = getCircumference(10);
+console.log("Circumference of 10: " + circumference);
+
+let area = getArea(10);
+console.log("Area of 10: " + area);
+```
+
+### Importing everything
+
+You can import everything from a module. See the following code:
+
+`import * as m from "./another_math_util.js";`
+
+`m` here is the alias for that module. So whenever we use a variable or a method from that module, we are going to type `m` first, just like when we use a method from `Math`.
+
+```
+import {PI, getArea, getCircumference} from "./math_util.js";
+import * as m from "./another_math_util.js";
+
+console.log("PI: " + PI);
+
+let circumference = getCircumference(10);
+console.log("Circumference of 10: " + circumference);
+
+let area = getArea(10);
+console.log("Area of 10: " + area);
+
+let radius = m.getRadius(area);
+console.log("Radius of " + area + ": " + radius);
+```
+
+
+
