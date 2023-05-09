@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=0Xm9PsqcFnA&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=70&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=IXEP7V7ZSZI&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=73&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -3173,5 +3173,19 @@ let radius = m.getRadius(area);
 console.log("Radius of " + area + ": " + radius);
 ```
 
+## DOM intro
 
+DOM is the Document Object Model, and it's an API. It is an interface for changing content of a page.
+
+Whenever we want to change the text from an object in HTML through JavaScript we use the `document.getElementById`, which is part of that API.
+
+Here is some code as example:
+
+```
+console.dir(document); // list document properties
+console.log(document.title); // displaying the title of the doc
+document.title = "New Title"; // changing title
+document.location = "http://www.google.com" // changing address
+document.body.style.backgroundColor = "skyblue"; // changing attribute
+```
 
