@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=IXEP7V7ZSZI&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=73&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=oDy-NpWWn0I&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=74&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -3189,3 +3189,84 @@ document.location = "http://www.google.com" // changing address
 document.body.style.backgroundColor = "skyblue"; // changing attribute
 ```
 
+## Element selector
+
+Let's change the background of an element:
+
+```
+let element = document.getElementById("playground");
+element.style.backgroundColor = "darkgreen";
+```
+
+### Selecting by name
+
+Let's select elements by their name. The `name` attribute is useful if you have more than one element in some sort of group, like radiobuttons. In order to select you're going to use `document.getElementsByName()` then pass a name as the argument. This method returns a node list. It's similar to an array.
+
+`let fruits = document.getElementsByName("fruits");`
+
+Now let's go through each fruit and see if any is checked:
+
+```
+let fruits = document.getElementsByName("fruits");
+
+fruits.forEach(fruit => {
+    if (fruit.checked) {
+        console.log(fruit.value);
+    }
+});
+```
+
+### Selecting by tag name
+
+The `document.getElementByTagName()` could be used to get elements from an unordered list, for example. It returns an HTML colection, which is similar to an array.
+
+```
+let vegetables = document.getElementsByTagName("li");
+vegetables[0].style.backgroundColor = "lightgreen";
+vegetables[1].style.backgroundColor = "lightblue";
+vegetables[2].style.backgroundColor = "purple";
+```
+
+### Selecting by class name
+
+The `document.getElementByClassName()` works like the previous tu methods.
+
+```
+let desserts = document.getElementsByClassName("desserts");
+desserts[0].style.backgroundColor = "lightgreen";
+desserts[1].style.backgroundColor = "lightblue";
+desserts[2].style.backgroundColor = "purple";
+```
+
+### Query selector
+
+This one is quite popular. Using it we can select tags, attributes, ids and class names. If you're selecting an id, be sure to precede it with a hashtag "#", class names with a dot "." and use a set of square brackets "[]" for selecting an attribute. The attribute goes inside the square brackets. The query selector selects the first item.
+
+```
+let vegetable = document.querySelector("li");
+vegetable.style.backgroundColor = "lightgreen";
+```
+
+```
+let element = document.querySelector("#playground");
+element.style.backgroundColor = "darkgreen";
+```
+
+```
+let dessert = document.querySelector(".desserts");
+dessert.style.backgroundColor = "lightgreen";
+```
+
+```
+let fruit = document.querySelector("[for]");
+fruit.style.backgroundColor = "lightgreen";
+```
+
+### Selecting multiple items with the query selector
+
+```
+let element = document.querySelectorAll("[for]");
+element.forEach(element => {
+    element.style.backgroundColor = "darkgreen"
+});
+```
