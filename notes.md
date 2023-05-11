@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=oDy-NpWWn0I&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=74&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=080xF4VDvjw&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=75&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -3269,4 +3269,59 @@ let element = document.querySelectorAll("[for]");
 element.forEach(element => {
     element.style.backgroundColor = "darkgreen"
 });
+```
+
+## Dom traversal
+
+Accessing family members of an HTML element:
+
+```
+let element;
+element.firstElementChild;
+element.lastElementChild;
+element.parentElement;
+element.nextElementSibling;
+element.previousElementSibling;
+element.children[]; // access children through index
+Array.from(.children) // make an array of children
+```
+
+HTML:
+
+```
+<ul id="fruits">
+    <li>Apple</li>
+    <li>Orange</li>
+    <li>Banana</li>
+</ul>
+
+<ul id="vegetables">
+    <li>Carrots</li>
+    <li>Potatoes</li>
+    <li>Onion</li>
+</ul>
+
+<ul id="desserts">
+    <li>Ice cream</li>
+    <li>Cake</li>
+    <li>Pie</li>
+</ul>
+```
+
+JS:
+
+```
+let body = document.body;
+
+let firstUL = body.firstElementChild;
+let secondUL = firstUL.nextElementSibling;
+let thirdUL = secondUL.nextElementSibling;
+
+secondUL.style.backgroundColor = "lightgreen";
+secondUL.firstElementChild.nextElementSibling.style.backgroundColor = "red";
+
+thirdUL.children[2].style.backgroundColor = "blue";
+
+let childrenArray = Array.from(firstUL.children);
+childrenArray.forEach(child => child.style.backgroundColor = "purple");
 ```
