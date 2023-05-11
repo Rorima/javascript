@@ -3372,3 +3372,18 @@ myList.append(listItem);
 We will need to use the `.insertBefore` method. The first argument is the element we want to insert, and the second is the place where you want to put it, but in order to get the place, we will have to use the `getElementsByTagName` method, with an index number to tell where we want our item to be inserted. See the following code:
 
 `myList.insertBefore(listItem, myList.getElementsByTagName("li")[3]);`
+
+## Add and change CSS properties
+
+This works almost in the same way for adding and editing HTML elements. See the following code:
+
+```
+const demo = document.getElementById("demo");
+demo.style.backgroundColor = "rgb(50, 200, 250";
+demo.style.color = "#123456";
+demo.style.fontFamily = "consolas";
+demo.style.textAlign = "center";
+demo.style.border ="2px solid";
+demo.style.display = "block"; // type "none" if you want it to be invisible
+```
+
