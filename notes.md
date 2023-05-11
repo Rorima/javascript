@@ -3325,3 +3325,50 @@ thirdUL.children[2].style.backgroundColor = "blue";
 let childrenArray = Array.from(firstUL.children);
 childrenArray.forEach(child => child.style.backgroundColor = "purple");
 ```
+
+## Add and change HTML elements
+
+This is how you create an element:
+
+`const h1Tag = document.createElement("h1");`
+
+Now we have to edit this element to put text inside it. We can do this in two ways: using `innerHTML` and using `textContent`. It is more secure to user `textContent`.
+
+`h1Tag.textContent = "Title of the Page";`
+
+Now we need to display this on our page. In order to do that, we have to append this element on some part of our page. Let's append it to the body.
+
+`document.body.append(h1Tag);`
+
+### Adding an item to an undordered list
+
+HTML:
+
+```
+<ul id="fruits">
+    <li>Apple</li>
+    <li>Orange</li>
+    <li>Banana</li>
+</ul>
+```
+
+JS:
+
+```
+const h1Tag = document.createElement("h1");
+h1Tag.textContent = "Title of the Page";
+document.body.append(h1Tag);
+
+const myList = document.querySelector("#fruits");
+const listItem = document.createElement("li");
+listItem.textContent = "Mango";
+
+myList.append(listItem);
+// myList.prepend(listItem); // add at the beginning
+```
+
+#### Inserting an item into an exact location
+
+We will need to use the `.insertBefore` method. The first argument is the element we want to insert, and the second is the place where you want to put it, but in order to get the place, we will have to use the `getElementsByTagName` method, with an index number to tell where we want our item to be inserted. See the following code:
+
+`myList.insertBefore(listItem, myList.getElementsByTagName("li")[3]);`
