@@ -3387,3 +3387,18 @@ demo.style.border ="2px solid";
 demo.style.display = "block"; // type "none" if you want it to be invisible
 ```
 
+## Add event listener
+
+The `addEventListener` is the preferred way for handling events. A benefit is that one element can have several event listeners. Even the same event can invoke different functions.
+
+The first argument is an event, the second is a function.
+
+A benefit of using the `addEventListener` method, is that it's easy to wait for mutiple events.
+
+```
+const myDiv = document.getElementById("myDiv");
+myDiv.addEventListener(
+    "mouseover", () => myDiv.style.backgroundColor = "red");
+myDiv.addEventListener(
+    "mouseout", () => myDiv.style.backgroundColor = "lightgreen");
+```
