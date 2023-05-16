@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=Giw91x1MZP0&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=83&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=LJAUha22r2c&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=84&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -3403,3 +3403,113 @@ myDiv.addEventListener(
     "mouseout", () => myDiv.style.backgroundColor = "lightgreen");
 ```
 
+## Canvas
+
+The canvas API is a means for drawing graphics. It's useful for animations, games and data visualization. Create a canvas in your HTML file with the width and height of 500 pixels.
+
+HTML:
+
+`<canvas id="myCanvas" width="500" height="500"></canvas>`
+
+The first thing is to get the canvas, and then the context. Get the canvas with `document.getElementById`:
+
+`let canvas = document.getElementById("myCanvas");`
+
+And get the context with `getContext`. This method accepts one argument, which will be `"2d"`:
+
+`let context = canvas.getContext("2d");`
+
+When we draw, we draw on the context.
+
+### Drawing methods and attributes:
+
+* `beginPath()` begins the drawing process
+* `moveTo(<x>, <y>)` moves the pen on the canvas without drawing
+* `lineTo(<x>, <y>)` moves the line on the canvas drawing on it
+* `stroke()` effectuates the drawing
+* `lineWidth = <width>`
+* `strokeStyle = "<color>"` changes line color
+* `fill()`
+* `fillStyle = "<color>"` choses the color to fill the geometric figure with
+
+Code example:
+
+```
+context.lineWidth = 5;
+context.strokeStyle = "purple";
+context.beginPath();
+context.moveTo(0, 0);
+context.lineTo(250, 250);
+context.lineTo(250, 500);
+context.moveTo(500, 0);
+context.lineTo(250, 250);
+context.stroke();
+```
+
+### Drawing a triangle
+
+```
+function drawTriangle() {
+    context.fillStyle = "purple";
+    context.beginPath();
+    context.moveTo(0, 400);
+    context.lineTo(250, 0);
+    context.lineTo(500, 400);
+    context.lineTo(0, 400);
+    context.fill();
+    context.stroke();
+}
+
+drawTriangle();
+```
+
+### Drawing a rectangle
+
+The `strokeRect` creates rectangles and squares automatically. Pass the x, y, width and height. The `fillRect` works in the same manner. The difference is that it fills the square.
+
+```
+function drawRectangle() {
+    context.strokeRect(50, 50, 400, 400);
+    context.fillStyle = "purple";
+    context.fillRect(100, 100, 300, 300);
+}
+
+drawRectangle()
+```
+
+### Drawing a circle
+
+Use the `arc` method.
+
+Arguments: (x: number, y: number, startingAngle: number, endingAngle: number, counterclockwise: boolean)
+
+```
+function drawCircle() {
+    context.fillStyle = "purple";
+    context.beginPath();
+    context.arc(250, 250, 200, 0, 2 * Math.PI);
+    context.arc()
+    context.stroke();
+    context.fill();
+}
+
+drawCircle()
+```
+
+### Writing text
+
+* `fillText("<text>", width, height)`
+* `font = "<color>"`
+* `textAlign = "<side>"`
+
+```
+function drawText() {
+    context.font = "50px MV Boli";
+    context.fillStyle = "green";
+    context.textAlign = "center";
+    // middle of the canvas
+    context.fillText("Studying", canvas.width / 2, canvas.height / 2);
+}
+
+drawText()
+```
