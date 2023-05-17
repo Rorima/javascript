@@ -3513,3 +3513,45 @@ function drawText() {
 
 drawText()
 ```
+
+## Window
+
+You're going to see a coulpe of methods and attributes of the window object.
+
+Attributes:
+
+```
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+console.log(window.outerWidth);
+console.log(window.outerHeight);
+console.log(window.scrollX);
+console.log(window.scrollY);
+console.log(window.location.href); // can be changed
+console.log(window.location.hostname); // local IP address
+console.log(window.location.pathname);
+```
+
+Methods:
+
+```
+window.open("<url>"); // opens a new window
+window.close(); // closes current window
+window.print(); // print current page
+window.alert("<message>");
+window.confirm("<message>");
+window.prompt("<message>");
+```
+
+Code example:
+
+```
+const button = document.getElementById("button1");
+button.addEventListener("click", () => {
+    let age = window.prompt("Enter your age:");
+    if (age < 18) {
+        window.alert("You must be 18+ to be an adult");
+        window.close();
+    }
+});
+```
