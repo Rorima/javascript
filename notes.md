@@ -3555,3 +3555,123 @@ button.addEventListener("click", () => {
     }
 });
 ```
+
+## Cookies
+
+A cookie is a small text file stored on your computer used to remember information about the user. It is saved in name=value pairs.
+
+In order to see if you cookies are enabled in your website, type: `console.log(navigator.cookieEnabled);`.
+
+You can see the cookies by typing: `console.log(document.cookies);`
+
+### Adding cookies
+
+Cookies are saved in name=value pairs. You can have an expiration date, and at that time the cookie will be deleted. The expiration date is optional.
+
+`document.cookie = "firstName=SpongeBob; expires=Sun, 1 January 2030 12:00:00 UTC;"`;
+
+You can also set a path for a cookie. Let's add the default path:
+
+`document.cookie = "firstName=SpongeBob; expires=Sun, 1 January 2030 12:00:00 UTC; path=/"`
+
+Neither the expiration date nor the path will be displayed when you display the cookies by `console.log(document.cookies);`.
+
+You can add more than one cookie:
+
+```
+document.cookie = "firstName=SpongeBob; expires=Sun, 1 January 2030 12:00:00 UTC; path=/;";
+document.cookie = "lastName=SquarePant; expires=Sun, 1 January 2030 12:00:00 UTC; path=/;";
+```
+
+If you set the expiration date to the past, the cookie will be deleted automatically.
+
+`document.cookie = "firstName=SpongeBob; expires=Sun, 1 January 2000 12:00:00 UTC; path=/;";`
+
+Let's create a function that create cookies.
+
+```
+function setCookie(name, value, daysToLive) {
+    const date = new Date();
+    date.setTime(date.getTime() + daysToLive * 24 * 60 * 60 * 1000);
+    let expires = "expires=" + date.toUTCString();
+
+    document.cookie = `${name}=${value}; ${expires};`;
+    
+    "firstName=SpongeBob; expires=Sun, 1 January 2000 12:00:00 UTC;";
+}
+```
+
+The `daysToLive`argument will be how many days the cookie will be stored. First we set a date object, and then we get the current time in milliseconds with `getTime()`. After that, we multiply the `daysToLive` by 24, which will turn these days into hours;then we multiply by 60, which will turn these hours into minutes; then by 60 again, which will turn these minutes into seconds; and then by 1000, which will turn the seconds into milliseconds.
+
+We then transform these milliseconds into an UTC string using the `toUTCString` method.
+
+Now let's create a function to delete cookies. We are going to use the previous function.
+
+```
+function deleteCookie(name) {
+    setCookie(name, null, null);
+}
+```
+
+### Editing cookies
+
+In order to edit a cookie, write different values but keep the same names.
+
+Setting a cookie:
+
+`document.cookie = "firstName=SpongeBob; expires=Sun, 1 January 2030 12:00:00 UTC;"`;
+
+Editing a cookie:
+
+`document.cookie = "firstName=Patrick; expires=Sun, 1 January 2030 12:00:00 UTC;"`;
+
+### Getting a cookie by name
+
+```
+function getCookie(name) {
+    const cDecoded = decodeURIComponent(document.cookie);
+    const cArray = cDecoded.split("; ");
+    let result = null;
+
+    cArray.forEach(element => {
+        if(element.indexOf(name) == 0) {
+            result = element.substring(name.length + 1);
+        }
+    });
+
+    return result;
+}
+```
+
+We first need to decode the values of cookie. In order to do that, we have to use `decodeURIComponent`. When it comes to working with cookies in JavaScript, the `encodeURIComponent` and `decodeURIComponent` functions are often used in combination to properly encode and decode cookie values.
+
+ Before assigning a value to a cookie, it's important to properly encode it using `encodeURIComponent` to handle any special characters.
+
+ Example:
+
+```
+const cookieValue = 'Hello World!';
+const encodedValue = encodeURIComponent(cookieValue);
+
+document.cookie = `myCookie=${encodedValue}; expires=Thu, 17 May 2024 00:00:00 UTC; path=/`;
+```
+
+To retrieve the cookie value later, you need to decode it using `decodeURIComponent`:
+
+```
+const decodedCookie = decodeURIComponent(document.cookie);
+console.log(decodedCookie);  // Output: myCookie=Hello World!
+```
+
+Remember to use these encoding and decoding functions consistently and symmetrically when working with cookies in JavaScript.
+
+After we decode the cookie values, we separate each cookie placing them in an array. When we get a cookie, we get a string which separates each cookie with a semicolon and a space. Using the `split` method we can separate each cookie and place them in an array.
+
+Then we get the name of the cookie by using the `indexOf` method.
+
+After that we get the string after the name. The `substring` method is used to extract a portion of a string and return it as a new string. It takes two parameters: the starting index and the ending index (optional). The method extracts characters from the original string, starting at the specified index. In this case, the index is where the value begins.
+
+After that we return `result`, which is the value of the key the user sent.
+
+9:40
+https://www.youtube.com/watch?v=i7oL_K_FmM8&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=85&ab_channel=BroCode
