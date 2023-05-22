@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=LJAUha22r2c&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=84&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=AnmwHjpEhtA&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=88&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
@@ -3673,5 +3673,3 @@ After that we get the string after the name. The `substring` method is used to e
 
 After that we return `result`, which is the value of the key the user sent.
 
-9:40
-https://www.youtube.com/watch?v=i7oL_K_FmM8&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=85&ab_channel=BroCode
