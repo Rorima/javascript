@@ -4,7 +4,7 @@ These are all of the notes I took while studying the playlist JavaScript Tutoria
 
 [Playlist link](https://www.youtube.com/playlist?list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1).
 
-Bro code: I stopped [here](https://www.youtube.com/watch?v=AnmwHjpEhtA&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=88&ab_channel=BroCode).
+Bro code: I stopped [here](https://www.youtube.com/watch?v=Je0B3nHhKmM&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=89&ab_channel=BroCode).
 
 JS.org: I stopped [here](https://www.learn-js.org/en/Promises).
 
